@@ -13,7 +13,7 @@
   <style>
     /* ==========================================================================
        Braket Reloaded — Full-Page Immersive Medical Teal & Lab White Engine
-       Crisp, clinical typography without blurry red glow shadows.
+       With clinical Medical Teal precision boundary outline frame.
        ========================================================================== */
     :root {
       --teal-900: #0a3a3c;
@@ -189,6 +189,64 @@
     .static-number--alert {
       color: var(--crimson-red);
       text-shadow: none !important;
+    }
+
+    /* Team Members Slide Styles */
+    .team-members-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 36px;
+      text-align: left;
+    }
+
+    .team-member-card {
+      padding: 40px 36px;
+      background: var(--white-pure);
+      border: 2.5px solid var(--teal-600);
+      border-radius: 22px;
+      box-shadow: 0 16px 40px rgba(27, 110, 113, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .team-member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(27, 110, 113, 0.18);
+    }
+
+    .team-member-name {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.15;
+    }
+
+    .team-member-dept {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      line-height: 1.4;
+    }
+
+    .team-member-spec {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--teal-50);
+      border: 1.5px solid var(--teal-600);
+      border-radius: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--teal-700);
+      width: fit-content;
     }
 
     /* Slashed Price Reveal Styles */
@@ -1111,9 +1169,33 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 8: WHAT IS ORAL CANCER? (ONLY TITLE & DEFINITION)
+         SLIDE 8: TEAM BRAKET RELOADED
          ----------------------------------------------------------------------- -->
     <section class="slide" data-index="7">
+      <h2 class="slide-heading" style="margin-bottom: 8px;">Team <em>BraKet Reloaded</em></h2>
+      <p class="slide-desc" style="max-width: 52ch; font-size: 1.3rem;">Pioneering Hybrid Quantum AI for Preventive Oral Oncology in India</p>
+
+      <div class="team-members-grid">
+        <div class="team-member-card">
+          <span class="info-tag" style="color: var(--teal-700);">Team Member · Lead Researcher</span>
+          <div class="team-member-name">Ishan Narayan Shukla</div>
+          <div class="team-member-dept">Department of Computer Science &amp; Engineering</div>
+          <div class="team-member-spec">Specialization in Quantum Technologies</div>
+        </div>
+
+        <div class="team-member-card">
+          <span class="info-tag" style="color: var(--teal-700);">Team Member · Systems Engineer</span>
+          <div class="team-member-name">Jay Karan Laxme</div>
+          <div class="team-member-dept">Department of Computer Science &amp; Engineering</div>
+          <div class="team-member-spec">Specialization in Quantum Technologies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SLIDE 9: WHAT IS ORAL CANCER? (ONLY TITLE & DEFINITION)
+         ----------------------------------------------------------------------- -->
+    <section class="slide" data-index="8">
       <h2 class="slide-heading">What Is <em>Oral Cancer?</em></h2>
       <p class="slide-desc" style="font-size: 1.45rem; max-width: 46ch; line-height: 1.6;">
         Oral cancer is a malignant growth that develops in the tissues of the oral cavity and oropharynx, predominantly as Oral Squamous Cell Carcinoma (OSCC).
@@ -1121,9 +1203,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 9: WHAT IS ORAL CANCER? (STEP 1: MUCOSAL SITES)
+         SLIDE 10: WHAT IS ORAL CANCER? (STEP 1: MUCOSAL SITES)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="8">
+    <section class="slide" data-index="9">
       <h2 class="slide-heading">What Is <em>Oral Cancer?</em></h2>
       <div class="info-3col">
         <div class="info-card">
@@ -1135,9 +1217,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 10: WHAT IS ORAL CANCER? (STEP 2: SILENT LESIONS)
+         SLIDE 11: WHAT IS ORAL CANCER? (STEP 2: SILENT LESIONS)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="9">
+    <section class="slide" data-index="10">
       <h2 class="slide-heading">What Is <em>Oral Cancer?</em></h2>
       <div class="info-3col">
         <div class="info-card">
@@ -1154,9 +1236,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 11: WHAT IS ORAL CANCER? (STEP 3: DEEP INVASION)
+         SLIDE 12: WHAT IS ORAL CANCER? (STEP 3: DEEP INVASION)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="10">
+    <section class="slide" data-index="11">
       <h2 class="slide-heading">What Is <em>Oral Cancer?</em></h2>
       <div class="info-3col">
         <div class="info-card">
@@ -1178,9 +1260,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 12: THE MAJOR CAUSES (ONLY TITLE & INTRO)
+         SLIDE 13: THE MAJOR CAUSES (ONLY TITLE & INTRO)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="11">
+    <section class="slide" data-index="12">
       <h2 class="slide-heading">The Major <em>Causes</em></h2>
       <p class="slide-desc" style="font-size: 1.45rem; max-width: 46ch; line-height: 1.6;">
         Over 90% of oral cancers in India are directly attributable to chewable and smoked carcinogens.
@@ -1188,9 +1270,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 13: THE MAJOR CAUSES (CAUSE 1: TOBACCO & KHAINI)
+         SLIDE 14: THE MAJOR CAUSES (CAUSE 1: TOBACCO & KHAINI)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="12">
+    <section class="slide" data-index="13">
       <h2 class="slide-heading">The Major <em>Causes</em></h2>
       <div class="info-3col">
         <div class="info-card info-card--alert">
@@ -1202,9 +1284,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 14: THE MAJOR CAUSES (CAUSE 1 & 2: SUPARI & ARECA NUT)
+         SLIDE 15: THE MAJOR CAUSES (CAUSE 1 & 2: SUPARI & ARECA NUT)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="13">
+    <section class="slide" data-index="14">
       <h2 class="slide-heading">The Major <em>Causes</em></h2>
       <div class="info-3col">
         <div class="info-card info-card--alert">
@@ -1221,9 +1303,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 15: THE MAJOR CAUSES (CAUSE 1, 2 & 3: GUTKHA & PAN MASALA)
+         SLIDE 16: THE MAJOR CAUSES (CAUSE 1, 2 & 3: GUTKHA & PAN MASALA)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="14">
+    <section class="slide" data-index="15">
       <h2 class="slide-heading">The Major <em>Causes</em></h2>
       <div class="info-3col">
         <div class="info-card info-card--alert">
@@ -1245,9 +1327,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 16: THE 6-MONTH WARNING WINDOW (THE TRAGIC PARADOX)
+         SLIDE 17: THE 6-MONTH WARNING WINDOW (THE TRAGIC PARADOX)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="15">
+    <section class="slide" data-index="16">
       <h2 class="slide-heading">The <em>6-Month</em> Warning Window</h2>
       <p class="slide-desc">Oral cancer gives the human body a 6-month warning window in plain sight. Yet in India, <strong>70% of patients waste this window</strong> because no one is looking and there is no accessible tool to triage it.</p>
 
@@ -1269,9 +1351,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 17: THE TWO FUTURES SPLIT SCREEN (STAGE 0 VS STAGE IV)
+         SLIDE 18: THE TWO FUTURES SPLIT SCREEN (STAGE 0 VS STAGE IV)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="16">
+    <section class="slide" data-index="17">
       <h2 class="slide-heading">The Two Futures: <em>A Stark Contrast</em></h2>
       <p class="slide-desc">The heartbreaking difference between screening today versus discovering it 6 months later.</p>
 
@@ -1335,43 +1417,43 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 18: IS THERE ANY CURE?
+         SLIDE 19: IS THERE ANY CURE?
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="17">
+    <section class="slide" data-index="18">
       <h1 class="dramatic-question">Is There Any Cure for Late-Stage Oral Cancer?</h1>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 19: UNFORTUNATELY, NO.
+         SLIDE 20: UNFORTUNATELY, NO.
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="18">
+    <section class="slide" data-index="19">
       <div class="dramatic-answer-no">Unfortunately, NO.</div>
       <p class="lead-stat-sub" style="color: var(--slate-800); max-width: 30ch;">Once it advances to Stage III or IV, survival collapses below 20%.</p>
       <p class="slide-desc" style="margin-top: 18px; max-width: 52ch;">Late-stage treatments require radical surgery, jaw bone resection, and facial disfigurement, with devastating physical, psychological, and financial tolls on families.</p>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 20: EARLY DETECTION IS THE ONLY SOLUTION
+         SLIDE 21: EARLY DETECTION IS THE ONLY SOLUTION
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="19">
+    <section class="slide" data-index="20">
       <h1 class="dramatic-answer-solution">Early Detection Is the ONLY Solution.</h1>
       <p class="lead-stat-sub" style="color: var(--teal-700);">Survival Exceeds 85% When Detected at Stage I or Precancer.</p>
       <p class="slide-desc" style="margin-top: 18px; max-width: 52ch;">Simple, non-invasive outpatient treatment cures precancerous lesions completely without surgery or disfigurement — if identified in time.</p>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 21: JUST 900 CANCER FACILITIES
+         SLIDE 22: JUST 900 CANCER FACILITIES
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="20">
+    <section class="slide" data-index="21">
       <div class="giant-stat" style="color: var(--crimson-red); font-size: 9.5rem; margin: 12px 0;">JUST 900</div>
       <p class="lead-stat-sub">Functional Cancer Care Facilities in All of India</p>
       <p class="slide-desc" style="margin-top: 16px; max-width: 52ch;">Specialized oncology centers equipped with radiation bunkers, surgical oncology suites, and dedicated oral pathology labs.</p>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 22: THE MATHEMATICS OF IMPOSSIBILITY
+         SLIDE 23: THE MATHEMATICS OF IMPOSSIBILITY
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="21">
+    <section class="slide" data-index="22">
       <h2 class="slide-heading" style="margin-bottom: 4px;">If We Do a Little <em>Math...</em></h2>
       
       <div class="math-card">
@@ -1388,9 +1470,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 23: THE QUEUE BOTTLENECK
+         SLIDE 24: THE QUEUE BOTTLENECK
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="22">
+    <section class="slide" data-index="23">
       <h2 class="slide-heading" style="margin-bottom: 4px;">For Getting an Early Detection Test...</h2>
       
       <div class="queue-card">
@@ -1403,16 +1485,16 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 24: IS THERE ANY SOLUTION?
+         SLIDE 25: IS THERE ANY SOLUTION?
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="23">
+    <section class="slide" data-index="24">
       <h1 class="dramatic-question" style="font-size: 5.2rem;">Is There Any Solution?</h1>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 25: QUORA LOGO ON MEDICAL TEAL BACKGROUND
+         SLIDE 26: QUORA LOGO ON MEDICAL TEAL BACKGROUND
          ----------------------------------------------------------------------- -->
-    <section class="slide slide--teal-bg" data-index="24">
+    <section class="slide slide--teal-bg" data-index="25">
       <div class="quora-reveal-wrap">
         <svg class="quora-logo-svg" viewBox="0 0 880 220" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(160,110)">
@@ -1426,9 +1508,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 26: QUORA LOGO + INDIA'S FIRST HYBRID QML PLATFORM
+         SLIDE 27: QUORA LOGO + INDIA'S FIRST HYBRID QML PLATFORM
          ----------------------------------------------------------------------- -->
-    <section class="slide slide--teal-bg" data-index="25">
+    <section class="slide slide--teal-bg" data-index="26">
       <div class="quora-reveal-wrap">
         <svg class="quora-logo-svg" viewBox="0 0 880 220" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(160,110)">
@@ -1445,9 +1527,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 27: PROPER HORIZONTAL FLOWCHART (30 SECONDS)
+         SLIDE 28: PROPER HORIZONTAL FLOWCHART (30 SECONDS)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="26">
+    <section class="slide" data-index="27">
       <h2 class="slide-heading">Point-of-Care Triage in <em>30 Seconds</em></h2>
 
       <div class="flowchart-horizontal">
@@ -1484,9 +1566,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 28: LIVE PLATFORM DEMO VIDEO
+         SLIDE 29: LIVE PLATFORM DEMO VIDEO
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="27">
+    <section class="slide" data-index="28">
       <h2 class="slide-heading" style="font-size: 2.8rem; margin-bottom: 14px;">Live Platform <em>Demonstration</em></h2>
       <div class="video-slide-container">
         <div class="video-frame-wrapper">
@@ -1500,25 +1582,25 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 29: WHAT IS THE COST OF PER SCAN?
+         SLIDE 30: WHAT IS THE COST OF PER SCAN?
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="28">
+    <section class="slide" data-index="29">
       <h1 class="dramatic-question" style="font-size: 5rem;">What is the Cost of Per Scan?</h1>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 30: RS 4,999 (INITIAL PRICE ANCHOR)
+         SLIDE 31: RS 4,999 (INITIAL PRICE ANCHOR)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="29">
+    <section class="slide" data-index="30">
       <div class="pure-number-slide">
         <div class="static-number" style="font-size: 10.5rem; color: var(--slate-800);">Rs 4,999</div>
       </div>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 31: CUT IT -> JUST RS 199
+         SLIDE 32: CUT IT -> JUST RS 199
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="30">
+    <section class="slide" data-index="31">
       <div class="pure-number-slide">
         <div class="price-strikethrough-reveal">
           <div class="price-slashed">Rs 4,999</div>
@@ -1528,9 +1610,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 32: THE "DOCTOR DISTANCE" & RURAL HEALTHCARE ISOLATION
+         SLIDE 33: THE "DOCTOR DISTANCE" & RURAL HEALTHCARE ISOLATION
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="31">
+    <section class="slide" data-index="32">
       <h2 class="slide-heading">The <em>"Doctor Distance"</em> Paradox</h2>
       <p class="slide-desc">Why ₹199 smartphone triage changes everything for rural India.</p>
 
@@ -1550,9 +1632,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 33: THE ECONOMIC DRAIN ON INDIA'S WORKING CLASS
+         SLIDE 34: THE ECONOMIC DRAIN ON INDIA'S WORKING CLASS
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="32">
+    <section class="slide" data-index="33">
       <h2 class="slide-heading">Economic Drain on <em>India's Working Class</em></h2>
       <p class="slide-desc">The macro-economic crisis caused by late-stage oral cancer treatment.</p>
 
@@ -1578,9 +1660,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 34: FOR HOSPITALS: QUORA WEBAPP + QR CODE
+         SLIDE 35: FOR HOSPITALS: QUORA WEBAPP + QR CODE
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="33">
+    <section class="slide" data-index="34">
       <h2 class="slide-heading">For Hospitals &amp; Clinics: <em>The QuOra Webapp</em></h2>
       
       <div class="qr-webapp-layout">
@@ -1608,9 +1690,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 35: AND FOR NORMAL CITIZENS: THE QUORA APP + DOWNLOAD QR
+         SLIDE 36: AND FOR NORMAL CITIZENS: THE QUORA APP + DOWNLOAD QR
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="34">
+    <section class="slide" data-index="35">
       <h2 class="slide-heading">And for Normal Citizens: <em>The QuOra App</em></h2>
       
       <div class="qr-webapp-layout">
@@ -1638,9 +1720,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 36: HOW TO USE THIS APP
+         SLIDE 37: HOW TO USE THIS APP
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="35">
+    <section class="slide" data-index="36">
       <h2 class="slide-heading">How to Use <em>The QuOra App</em></h2>
       <p class="slide-desc">Designed for zero medical training — point, align, scan, and receive clinical guidance.</p>
 
@@ -1669,9 +1751,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 37: OUR BUSINESS MODEL & UNIT ECONOMICS (IN INR)
+         SLIDE 38: OUR BUSINESS MODEL & UNIT ECONOMICS (IN INR)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="36">
+    <section class="slide" data-index="37">
       <h2 class="slide-heading">Our <em>Business Model</em></h2>
       <p class="slide-desc">High-margin software revenue across institutional B2B and consumer B2C channels.</p>
 
@@ -1706,9 +1788,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 38: CORE TECHNOLOGY - HYBRID QUANTUM AI
+         SLIDE 39: CORE TECHNOLOGY - HYBRID QUANTUM AI
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="37">
+    <section class="slide" data-index="38">
       <h2 class="slide-heading">Hybrid <em>Quantum AI</em> Technology</h2>
       <p class="slide-desc">QuOra is a dual-platform early oral cancer screening solution fusing classical vision with superconducting quantum circuits.</p>
 
@@ -1729,9 +1811,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 39: TARGET PAIN POINTS & FUNDAMENTAL PROBLEM SOLVED
+         SLIDE 40: TARGET PAIN POINTS & FUNDAMENTAL PROBLEM SOLVED
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="38">
+    <section class="slide" data-index="39">
       <h2 class="slide-heading">Target Pain Points &amp; <em>Fundamental Solution</em></h2>
 
       <div class="tech-dual-layout">
@@ -1750,9 +1832,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 40: MARKET SIZE & GROWTH DYNAMICS
+         SLIDE 41: MARKET SIZE & GROWTH DYNAMICS
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="39">
+    <section class="slide" data-index="40">
       <h2 class="slide-heading">Market Size &amp; <em>Growth Dynamics</em></h2>
       <p class="slide-desc">India represents the world's highest density growth opportunity for point-of-care AI oncology diagnostics.</p>
 
@@ -1772,9 +1854,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 41: TOTAL ADDRESSABLE MARKET (TAM)
+         SLIDE 42: TOTAL ADDRESSABLE MARKET (TAM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="40">
+    <section class="slide" data-index="41">
       <h2 class="slide-heading" style="margin-bottom: 2px;">Total Addressable Market <em>(TAM)</em></h2>
       
       <div class="market-giant-card">
@@ -1786,9 +1868,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 42: SERVICEABLE ADDRESSABLE MARKET (SAM)
+         SLIDE 43: SERVICEABLE ADDRESSABLE MARKET (SAM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="41">
+    <section class="slide" data-index="42">
       <h2 class="slide-heading" style="margin-bottom: 2px;">Serviceable Addressable Market <em>(SAM)</em></h2>
       
       <div class="market-giant-card">
@@ -1800,9 +1882,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 43: SERVICEABLE OBTAINABLE MARKET (SOM)
+         SLIDE 44: SERVICEABLE OBTAINABLE MARKET (SOM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="42">
+    <section class="slide" data-index="43">
       <h2 class="slide-heading" style="margin-bottom: 2px;">Serviceable Obtainable Market <em>(SOM)</em></h2>
       
       <div class="market-giant-card">
@@ -1814,9 +1896,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 44: CUSTOMER ACQUISITION STRATEGY (GTM)
+         SLIDE 45: CUSTOMER ACQUISITION STRATEGY (GTM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="43">
+    <section class="slide" data-index="44">
       <h2 class="slide-heading">Customer Acquisition <em>(GTM)</em></h2>
 
       <div class="tech-dual-layout">
@@ -1835,9 +1917,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 45: CLOSING VISION - INDIAN QUANTUM MISSION 2030
+         SLIDE 46: CLOSING VISION - INDIAN QUANTUM MISSION 2030
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="44">
+    <section class="slide" data-index="45">
       <div class="giant-stat giant-stat--teal" style="font-size: 6.5rem;">ZERO DEATHS</div>
       <p class="lead-stat-sub" style="max-width: 28ch; line-height: 1.3;">With the Completion of the National Quantum Mission by 2030...</p>
       <p class="slide-desc" style="margin-top: 24px; max-width: 56ch; font-size: 1.35rem; color: var(--slate-800); font-weight: 600;">
