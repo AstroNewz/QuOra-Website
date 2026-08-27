@@ -1933,6 +1933,15 @@
     const slides = document.querySelectorAll(".slide");
     let current = 0;
 
+    // Read initial slide from URL hash if present
+    const hashMatch = window.location.hash.match(/slide=(\d+)/);
+    if (hashMatch) {
+      const initIdx = parseInt(hashMatch[1], 10) - 1;
+      if (initIdx >= 0 && initIdx < slides.length) {
+        current = initIdx;
+      }
+    }
+
     function update() {
       slides.forEach((s, idx) => {
         const isActive = idx === current;
@@ -1947,6 +1956,7 @@
           }
         }
       });
+      history.replaceState(null, "", "#slide=" + (current + 1));
     }
 
     function next() {
@@ -1963,15 +1973,186 @@
       }
     }
 
+    function goTo(idx) {
+      if (idx >= 0 && idx < slides.length) {
+        current = idx;
+        update();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    // --- 1. Universal Remote & Keyboard Event Listener ---
+    // Supports standard PowerPoint, Keynote, Unified Remote, PPTControl, and wireless clicker signals
     window.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+      const k = e.key;
+
+      // NEXT SLIDE SIGNALS
+      if (
+        k === "ArrowRight" ||
+        k === "ArrowDown" ||
+        k === "PageDown" ||
+        k === " " ||
+        k === "Spacebar" ||
+        k === "Enter" ||
+        k === "n" ||
+        k === "N" ||
+        k === "j" ||
+        k === "J" ||
+        k === "d" ||
+        k === "D" ||
+        k === "l" ||
+        k === "L" ||
+        k === "MediaTrackNext"
+      ) {
         e.preventDefault();
         next();
-      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+      }
+      // PREVIOUS SLIDE SIGNALS
+      else if (
+        k === "ArrowLeft" ||
+        k === "ArrowUp" ||
+        k === "PageUp" ||
+        k === "Backspace" ||
+        k === "p" ||
+        k === "P" ||
+        k === "k" ||
+        k === "K" ||
+        k === "a" ||
+        k === "A" ||
+        k === "h" ||
+        k === "H" ||
+        k === "MediaTrackPrevious"
+      ) {
+        e.preventDefault();
+        prev();
+      }
+      // FIRST SLIDE
+      else if (k === "Home") {
+        e.preventDefault();
+        goTo(0);
+      }
+      // LAST SLIDE
+      else if (k === "End") {
+        e.preventDefault();
+        goTo(slides.length - 1);
+      }
+      // FULLSCREEN (F5 / F)
+      else if (k === "F5" || k === "f" || k === "F") {
+        e.preventDefault();
+        toggleFullscreen();
+      }
+      // ESCAPE EXIT FULLSCREEN
+      else if (k === "Escape") {
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    });
+
+    // --- 2. Mouse Click & Remote Click Emulation ---
+    document.addEventListener("click", (e) => {
+      if (
+        e.target.closest("a") ||
+        e.target.closest("button") ||
+        e.target.closest("video") ||
+        e.target.closest("input")
+      ) {
+        return;
+      }
+
+      if (e.clientX < window.innerWidth * 0.2 || e.shiftKey) {
+        prev();
+      } else {
+        next();
+      }
+    });
+
+    document.addEventListener("contextmenu", (e) => {
+      if (!e.target.closest("a") && !e.target.closest("video")) {
         e.preventDefault();
         prev();
       }
     });
+
+    // --- 3. Mouse Wheel / Trackpad Scroll (Debounced) ---
+    let lastWheelTime = 0;
+    window.addEventListener("wheel", (e) => {
+      const now = Date.now();
+      if (now - lastWheelTime < 260) return;
+
+      if (e.deltaY > 25 || e.deltaX > 25) {
+        lastWheelTime = now;
+        next();
+      } else if (e.deltaY < -25 || e.deltaX < -25) {
+        lastWheelTime = now;
+        prev();
+      }
+    }, { passive: true });
+
+    // --- 4. Touch & Mobile Swipe Gestures ---
+    let touchStartX = 0;
+    let touchStartY = 0;
+    window.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener("touchend", (e) => {
+      if (!touchStartX || !touchStartY) return;
+      const diffX = touchStartX - e.changedTouches[0].clientX;
+      const diffY = touchStartY - e.changedTouches[0].clientY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          next();
+        } else {
+          prev();
+        }
+      }
+      touchStartX = 0;
+      touchStartY = 0;
+    }, { passive: true });
+
+    // --- 5. Gamepad & Bluetooth Presenter Polling ---
+    let prevButtonState = {};
+    function pollGamepads() {
+      const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+      for (const gp of gamepads) {
+        if (gp) {
+          if ((gp.buttons[0]?.pressed || gp.buttons[5]?.pressed || gp.buttons[15]?.pressed || gp.buttons[13]?.pressed) && !prevButtonState.next) {
+            next();
+            prevButtonState.next = true;
+          } else if (!gp.buttons[0]?.pressed && !gp.buttons[5]?.pressed && !gp.buttons[15]?.pressed && !gp.buttons[13]?.pressed) {
+            prevButtonState.next = false;
+          }
+
+          if ((gp.buttons[1]?.pressed || gp.buttons[4]?.pressed || gp.buttons[14]?.pressed || gp.buttons[12]?.pressed) && !prevButtonState.prev) {
+            prev();
+            prevButtonState.prev = true;
+          } else if (!gp.buttons[1]?.pressed && !gp.buttons[4]?.pressed && !gp.buttons[14]?.pressed && !gp.buttons[12]?.pressed) {
+            prevButtonState.prev = false;
+          }
+        }
+      }
+      requestAnimationFrame(pollGamepads);
+    }
+    window.addEventListener("gamepadconnected", () => {
+      requestAnimationFrame(pollGamepads);
+    });
+
+    window.focus();
+    document.body.focus();
 
     update();
   </script>
