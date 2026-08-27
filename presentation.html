@@ -1932,6 +1932,8 @@
   <script>
     const slides = document.querySelectorAll(".slide");
     let current = 0;
+    const totalSlides = slides.length;
+    const bc = window.BroadcastChannel ? new BroadcastChannel('quora_deck') : null;
 
     // Read initial slide from URL hash if present
     const hashMatch = window.location.hash.match(/slide=(\d+)/);
@@ -1942,7 +1944,7 @@
       }
     }
 
-    function update() {
+    function update(broadcast = true) {
       slides.forEach((s, idx) => {
         const isActive = idx === current;
         s.classList.toggle("is-active", isActive);
@@ -1957,6 +1959,20 @@
         }
       });
       history.replaceState(null, "", "#slide=" + (current + 1));
+
+      if (broadcast) {
+        // Broadcast to phone remote over SSE API
+        fetch('/api/remote/cmd', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'state_update', current: current + 1 })
+        }).catch(() => {});
+
+        // Broadcast to tabs
+        if (bc) {
+          bc.postMessage({ action: 'state_update', current: current + 1 });
+        }
+      }
     }
 
     function next() {
@@ -1988,6 +2004,49 @@
           document.exitFullscreen().catch(() => {});
         }
       }
+    }
+
+    // --- Real-Time Server-Sent Events (SSE) from Phone Remote ---
+    function connectRemoteSSE() {
+      try {
+        const sse = new EventSource('/api/remote/sse');
+        sse.onmessage = (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            if (data.action === 'next') {
+              next();
+            } else if (data.action === 'prev') {
+              prev();
+            } else if (data.action === 'first') {
+              goTo(0);
+            } else if (data.action === 'last') {
+              goTo(slides.length - 1);
+            } else if (data.action === 'goto' && data.slide) {
+              goTo(data.slide - 1);
+            } else if (data.action === 'fullscreen') {
+              toggleFullscreen();
+            }
+          } catch (err) {}
+        };
+        sse.onerror = () => {
+          sse.close();
+          setTimeout(connectRemoteSSE, 2500);
+        };
+      } catch (e) {}
+    }
+    connectRemoteSSE();
+
+    // --- BroadcastChannel for local phone / tab remotes ---
+    if (bc) {
+      bc.onmessage = (e) => {
+        if (!e.data) return;
+        if (e.data.action === 'next') next();
+        else if (e.data.action === 'prev') prev();
+        else if (e.data.action === 'goto' && e.data.slide) goTo(e.data.slide - 1);
+        else if (e.data.action === 'first') goTo(0);
+        else if (e.data.action === 'last') goTo(slides.length - 1);
+        else if (e.data.action === 'fullscreen') toggleFullscreen();
+      };
     }
 
     // --- 1. Universal Remote & Keyboard Event Listener ---
@@ -2154,7 +2213,7 @@
     window.focus();
     document.body.focus();
 
-    update();
+    update(false);
   </script>
 </body>
 </html>
