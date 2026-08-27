@@ -671,7 +671,7 @@
       line-height: 1.4;
     }
 
-    /* Pricing & Unit Economics (Slide 25) */
+    /* Business Model (Slide 25) */
     .business-3col {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -745,49 +745,37 @@
       line-height: 1.45;
     }
 
-    /* Market Sizing (Slide 28) */
-    .market-badge-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    .market-badge-card {
-      padding: 24px;
-      background: var(--white-pure);
-      border: 2px solid var(--border-teal-bold);
-      border-radius: 16px;
-      box-shadow: 0 10px 24px rgba(27, 110, 113, 0.08);
-    }
-
-    .market-badge-card--featured {
+    /* Dedicated TAM / SAM / SOM Giant Card (Slides 29, 30, 31) */
+    .market-giant-card {
+      padding: 40px 56px;
       background: var(--teal-50);
-      border-color: var(--teal-600);
+      border: 2.5px solid var(--teal-600);
+      border-radius: 24px;
+      box-shadow: 0 16px 44px rgba(27, 110, 113, 0.14);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      max-width: 860px;
+      width: 100%;
+      margin: 20px 0;
     }
 
-    .market-val {
+    .market-giant-val {
       font-family: var(--font-display);
-      font-size: 2.6rem;
+      font-size: 6.8rem;
       font-weight: 900;
       color: var(--teal-700);
-      margin: 8px 0;
+      line-height: 1;
+      text-shadow: 0 4px 24px rgba(27, 110, 113, 0.18);
     }
 
-    .cagr-strip {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px;
-      background: var(--teal-50);
-      border: 1.5px solid var(--teal-600);
-      border-radius: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
+    .market-giant-sub {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--slate-800);
+      font-style: italic;
     }
   </style>
 </head>
@@ -795,13 +783,13 @@
 
   <div class="ambient-mesh"></div>
 
-  <!-- Header with Team Name and Temporary Slide Counter -->
+  <!-- Header with Team Name and Slide Counter -->
   <header class="top-header">
     <div class="brand-wrap">
       <span class="brand-title">Braket Reloaded</span>
     </div>
     <div class="slide-counter" id="slideCounter">
-      01 / 30
+      01 / 33
     </div>
   </header>
 
@@ -1163,7 +1151,7 @@
       
       <div class="qr-webapp-layout">
         <div>
-          <p class="slide-desc" style="margin-bottom: 20px;">Empowering individuals with pocket-sized screening, personalized habit reduction coaching, and one-touch clinic navigation.</p>
+          <p class="slide-desc" style="margin-bottom: 20px;">Empowering every citizen with pocket-sized screening, personalized habit reduction coaching, and one-touch clinic navigation.</p>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <div class="map-stat-card">
               <strong>30-Second Optical Self-Screen</strong>
@@ -1302,42 +1290,77 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 28: MARKET SIZE & GROWTH (TAM / SAM / SOM)
+         SLIDE 28: MARKET SIZE & GROWTH DYNAMICS
          ----------------------------------------------------------------------- -->
     <section class="slide" data-index="27">
       <span class="slide-cat">Market Opportunity &amp; Expansion</span>
       <h2 class="slide-heading">Market Size &amp; <em>Growth Dynamics</em></h2>
+      <p class="slide-desc">India represents the world's highest density growth opportunity for point-of-care AI oncology diagnostics.</p>
 
-      <div class="market-badge-grid">
-        <div class="market-badge-card">
-          <span class="info-tag">Total Addressable</span>
-          <div class="market-val">$4.8 Billion</div>
-          <p style="font-size: 0.8rem; color: var(--slate-600);">Global Oral Cancer Diagnostics market.</p>
+      <div class="tech-dual-layout" style="margin-top: 20px;">
+        <div class="tech-card tech-card--teal">
+          <span class="info-tag" style="color: var(--teal-700)">India Growth Velocity</span>
+          <h3>22.5% CAGR</h3>
+          <p>Indian AI Healthcare &amp; Point-of-Care Diagnostics market expansion, driven by Ayushman Bharat digital health missions and nationwide tele-screening initiatives.</p>
         </div>
 
-        <div class="market-badge-card market-badge-card--featured">
-          <span class="info-tag" style="color: var(--teal-700)">Serviceable Addressable</span>
-          <div class="market-val">$1.2 Billion</div>
-          <p style="font-size: 0.8rem; color: var(--slate-600);">India &amp; SE Asia, targeting ~143,000 annual cases in India.</p>
+        <div class="tech-card">
+          <span class="info-tag">Global AI Diagnostics Sector</span>
+          <h3>14.2% CAGR</h3>
+          <p>Global AI/software oncology screening tools growth (overall global medical diagnostics expanding at 6.8% CAGR).</p>
         </div>
-
-        <div class="market-badge-card">
-          <span class="info-tag">Serviceable Obtainable</span>
-          <div class="market-val">$18 Million</div>
-          <p style="font-size: 0.8rem; color: var(--slate-600);">1.5% market capture in India over Years 1–3.</p>
-        </div>
-      </div>
-
-      <div class="cagr-strip">
-        <span>Global Market Growth: <strong>6.8% CAGR</strong></span>
-        <span>AI / Software Screening Tools: <strong style="color: var(--teal-700); font-size: 1.1rem;">14.2% CAGR</strong></span>
       </div>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 29: CUSTOMER ACQUISITION STRATEGY (GTM)
+         SLIDE 29: TOTAL ADDRESSABLE MARKET (TAM)
          ----------------------------------------------------------------------- -->
     <section class="slide" data-index="28">
+      <span class="slide-cat">Market Sizing · Global Horizon</span>
+      <h2 class="slide-heading" style="margin-bottom: 2px;">Total Addressable Market <em>(TAM)</em></h2>
+      
+      <div class="market-giant-card">
+        <div class="market-giant-val">₹40,000 Cr</div>
+        <p class="market-giant-sub">Global Oral Cancer Diagnostics &amp; Screening Market</p>
+      </div>
+
+      <p class="slide-desc" style="max-width: 56ch; margin-top: 6px;">Worldwide diagnostic expenditure across point-of-care screening, histopathology validation, and recurring oncology monitoring.</p>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SLIDE 30: SERVICEABLE ADDRESSABLE MARKET (SAM)
+         ----------------------------------------------------------------------- -->
+    <section class="slide" data-index="29">
+      <span class="slide-cat">Market Sizing · Regional Focus</span>
+      <h2 class="slide-heading" style="margin-bottom: 2px;">Serviceable Addressable Market <em>(SAM)</em></h2>
+      
+      <div class="market-giant-card">
+        <div class="market-giant-val">₹10,000 Cr</div>
+        <p class="market-giant-sub">India &amp; South-East Asia High-Risk Cohort</p>
+      </div>
+
+      <p class="slide-desc" style="max-width: 56ch; margin-top: 6px;">Directly targeting ~143,000 annual incident cases in India and 250 Million+ active chewable tobacco, khaini, and supari consumers.</p>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SLIDE 31: SERVICEABLE OBTAINABLE MARKET (SOM)
+         ----------------------------------------------------------------------- -->
+    <section class="slide" data-index="30">
+      <span class="slide-cat">Market Sizing · Near-Term Target</span>
+      <h2 class="slide-heading" style="margin-bottom: 2px;">Serviceable Obtainable Market <em>(SOM)</em></h2>
+      
+      <div class="market-giant-card">
+        <div class="market-giant-val">₹150 Cr</div>
+        <p class="market-giant-sub">1.5% Market Capture in India (Years 1–3)</p>
+      </div>
+
+      <p class="slide-desc" style="max-width: 56ch; margin-top: 6px;">Achieved through onboarding 15,000 Primary Health Centres (PHCs), CSR-backed mass screening drives, and 45,000 dental clinics.</p>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SLIDE 32: CUSTOMER ACQUISITION STRATEGY (GTM)
+         ----------------------------------------------------------------------- -->
+    <section class="slide" data-index="31">
       <span class="slide-cat">Go-to-Market Strategy</span>
       <h2 class="slide-heading">Customer Acquisition <em>(GTM)</em></h2>
 
@@ -1357,13 +1380,15 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 30: CLOSING VISION
+         SLIDE 33: CLOSING VISION - INDIAN QUANTUM MISSION 2030
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="29">
-      <span class="slide-cat">Our Commitment</span>
-      <div class="giant-stat giant-stat--teal" style="font-size: 5.5rem;">ZERO DEATHS</div>
-      <p class="lead-stat-sub">By 2030 — Eliminating Preventable Oral Cancer in India</p>
-      <p class="slide-desc" style="margin-top: 16px;">Targeting 1 Million High-Risk Screenings in the Next 18 Months · Powered by IBM Quantum Architecture</p>
+    <section class="slide" data-index="32">
+      <span class="slide-cat">National Health &amp; Quantum Mission</span>
+      <div class="giant-stat giant-stat--teal" style="font-size: 5.8rem;">ZERO DEATHS</div>
+      <p class="lead-stat-sub" style="max-width: 26ch; line-height: 1.3;">With the Completion of the National Quantum Mission by 2030...</p>
+      <p class="slide-desc" style="margin-top: 20px; max-width: 54ch; font-size: 1.2rem; color: var(--slate-800); font-weight: 600;">
+        We want to achieve <span style="color: var(--teal-700);">ZERO preventable deaths</span> caused by oral cancer in India.
+      </p>
     </section>
 
   </main>
