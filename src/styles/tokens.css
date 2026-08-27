@@ -1,0 +1,242 @@
+/*
+ * QuOra design tokens — Medical Teal & Lab White Design System
+ *
+ * Primary Palette:
+ *   Medical Teal:   #1B6E71 (Primary brand, clinical accents, low-risk state)
+ *   Lab White:      #FFFFFF & #F8FAFC (Pristine background, frosted glass surfaces)
+ *   Quantum Violet: #5B4B9E (Quantum circuit layer, telemetry, secondary accent)
+ *   Alert Brick:    #C2412D (High-risk triage alerts)
+ *   Triage Amber:   #D97706 (Suspicious triage state)
+ *   Clinical Ink:   #0F172A (High-contrast slate navy typography)
+ */
+
+:root {
+  /* ---- Canonical Base Palette ---- */
+  --medical-teal: #1b6e71;
+  --clinical-teal: #1b6e71;
+  --quantum-violet: #5b4b9e;
+  --lab-white: #ffffff;
+  --alert-brick: #c2412d;
+  --triage-amber: #d97706;
+
+  /* ---- Deep Clinical Ink for High-Contrast Typography ---- */
+  --ink-950: #0f172a;
+  --ink-900: #1e293b;
+  --ink-850: #263346;
+  --ink-800: #334155;
+  --ink-750: #3f4f66;
+  --ink-700: #475569;
+  --ink-600: #576880;
+  --ink-500: #64748b;
+  --ink-400: #7889a0;
+  --ink-300: #94a3b8;
+  --ink-200: #cbd5e1;
+  --ink-100: #e2e8f0;
+  --ink-50: #f1f5f9;
+
+  /* ---- Primary Text Scale (High-Contrast Slate Navy) ---- */
+  --white-100: #0f172a;
+  --white-200: #1e293b;
+  --white-300: #334155;
+  --white-400: #475569;
+
+  /* ---- Medical Teal Accents & Washes ---- */
+  --teal-bright: #1b6e71;
+  --teal-dim: #134e50;
+  --teal-glow: rgba(27, 110, 113, 0.16);
+  --teal-wash: rgba(27, 110, 113, 0.08);
+  --teal-border: rgba(27, 110, 113, 0.24);
+
+  --violet-bright: #5b4b9e;
+  --violet-dim: #433775;
+  --violet-glow: rgba(91, 75, 158, 0.16);
+  --violet-wash: rgba(91, 75, 158, 0.08);
+  --violet-border: rgba(91, 75, 158, 0.24);
+
+  --amber-bright: #d97706;
+  --amber-dim: #92400e;
+  --amber-glow: rgba(217, 119, 6, 0.16);
+  --amber-wash: rgba(217, 119, 6, 0.08);
+  --amber-border: rgba(217, 119, 6, 0.26);
+
+  --brick-bright: #c2412d;
+  --brick-dim: #991b1b;
+  --brick-glow: rgba(194, 65, 45, 0.16);
+  --brick-wash: rgba(194, 65, 45, 0.08);
+  --brick-border: rgba(194, 65, 45, 0.26);
+
+  /* ---- Risk Tier Semantics ---- */
+  --tier-low: var(--clinical-teal);
+  --tier-low-bright: var(--teal-bright);
+  --tier-low-wash: var(--teal-wash);
+  --tier-low-border: var(--teal-border);
+  --tier-low-glow: var(--teal-glow);
+
+  --tier-suspicious: var(--triage-amber);
+  --tier-suspicious-bright: var(--amber-bright);
+  --tier-suspicious-wash: var(--amber-wash);
+  --tier-suspicious-border: var(--amber-border);
+  --tier-suspicious-glow: var(--amber-glow);
+
+  --tier-high: var(--alert-brick);
+  --tier-high-bright: var(--brick-bright);
+  --tier-high-wash: var(--brick-wash);
+  --tier-high-border: var(--brick-border);
+  --tier-high-glow: var(--brick-glow);
+
+  /* ---- Typography ---- */
+  --font-display: "Inter", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Scale */
+  --t-hero: 2.5rem;
+  --t-display-lg: 2rem;
+  --t-display: 1.5rem;
+  --t-display-sm: 1.125rem;
+  --t-title: 1rem;
+  --t-body: 0.875rem;
+  --t-body-sm: 0.8125rem;
+  --t-micro: 0.75rem;
+  --t-nano: 0.6875rem;
+
+  --track-tight: -0.015em;
+  --track-normal: 0em;
+  --track-label: 0.04em;
+  --track-micro: 0.06em;
+
+  /* ---- Geometry & Elevation ---- */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-full: 9999px;
+
+  --hair: 1px;
+  --border-dark: rgba(15, 23, 42, 0.08);
+  --border-dark-subtle: rgba(15, 23, 42, 0.04);
+  --border-dark-strong: rgba(15, 23, 42, 0.16);
+  --border-glass: rgba(27, 110, 113, 0.14);
+  --border-glass-bright: rgba(27, 110, 113, 0.32);
+  --border-glass-subtle: rgba(15, 23, 42, 0.06);
+
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.06);
+  --shadow-glass: 0 4px 20px -2px rgba(27, 110, 113, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-glass-hover: 0 10px 30px -4px rgba(27, 110, 113, 0.15), 0 4px 10px -2px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  --shadow-glow-teal: 0 0 20px rgba(27, 110, 113, 0.16);
+  --shadow-glow-violet: 0 0 20px rgba(91, 75, 158, 0.16);
+
+  /* ---- Luminous White & Medical Teal Frosted Materials ---- */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-card: rgba(255, 255, 255, 0.78);
+  --glass-card-hover: rgba(255, 255, 255, 0.94);
+  --glass-card-nested: rgba(241, 245, 249, 0.75);
+  --glass-blur: blur(20px) saturate(180%);
+  --glass-blur-heavy: blur(28px) saturate(200%);
+
+  /* Layout Rails */
+  --rail-top: 62px;
+  --rail-foot: 36px;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-normal: 220ms;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------ */
+/* Medical Teal & Lab White Ambient Canvas Setup                      */
+/* ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(circle at 10% 8%, rgba(27, 110, 113, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 88% 14%, rgba(91, 75, 158, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 92%, rgba(27, 110, 113, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 90% 85%, rgba(91, 75, 158, 0.06) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--ink-950);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base interactive buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--r-full);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-spring);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--medical-teal), #228b8f);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(27, 110, 113, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(135deg, #165b5e, #1c7a7e);
+  box-shadow: 0 4px 14px rgba(27, 110, 113, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Monospace font utility */
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hidden elements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

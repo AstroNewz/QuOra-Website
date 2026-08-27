@@ -1,0 +1,659 @@
+{
+  "artifact": "quora-benchmark",
+  "generated_at": "2026-08-26T01:54:34.731078+00:00",
+  "data_provenance": "SYNTHETIC \u2014 programmatically generated, no real patients, no real images.",
+  "claim_scope": "These figures measure how well the pipeline learns a disclosed clinical reference generative model of lesion features. They are NOT clinical accuracy, NOT validated on patient data, and must not be quoted as diagnostic performance.",
+  "execution_target": "Local Qiskit Aer simulator",
+  "simulated": true,
+  "real_quantum_hardware_used": false,
+  "ibm_quantum_job_submitted": false,
+  "hardware_note": "No IBM Quantum hardware job was submitted in this build. The circuits are real and really execute, on a local simulator. A real-QPU validation run via the Qiskit Runtime free tier is an OPEN PHASE 1 ITEM -- not yet done, and listed as open on the roadmap rather than deferred to Phase 2.",
+  "dataset": {
+    "n_total": 720,
+    "n_train": 467,
+    "n_test": 253,
+    "n_features": 8,
+    "class_counts": {
+      "LOW": 336,
+      "SUSPICIOUS": 231,
+      "HIGH": 153
+    },
+    "test_fraction": 0.35,
+    "seed": 20260825,
+    "split": "stratified by tier; PCA and all models fitted on train split only",
+    "label_noise_rate": 0.07,
+    "label_noise_applied": 39,
+    "label_noise_note": "39/720 labels were perturbed to an adjacent tier to model clinician inter-observer disagreement. This puts a deliberate ceiling on achievable accuracy \u2014 no arm can or should reach 1.00.",
+    "difficulty_note": "Tier distributions overlap and two feature axes are non-monotonic in severity (keratin density peaks at the Suspicious tier). The task is intentionally not linearly separable."
+  },
+  "circuit": {
+    "n_qubits": 4,
+    "reps": 2,
+    "n_trainable_parameters": 16,
+    "depth": 22,
+    "size": 40,
+    "encoding": "angle encoding with data re-uploading each rep",
+    "entanglement": "CZ ring (encoding) + CX ring (variational)",
+    "observables": [
+      "<Z0>",
+      "<Z1>",
+      "<Z2>",
+      "<Z3>",
+      "<Z0Z1>",
+      "<Z1Z2>",
+      "<Z2Z3>",
+      "<Z3Z0>"
+    ],
+    "fingerprint": "8b50fc215d46",
+    "transpiled_depth_measured": 21
+  },
+  "training": {
+    "optimizer": "COBYLA",
+    "max_iterations": 90,
+    "circuit_batch_evaluations": 90,
+    "wall_clock_seconds": 99.74,
+    "initial_train_log_loss": 0.43927,
+    "final_train_log_loss": 0.36747,
+    "best_train_log_loss": 0.36747,
+    "converged": false,
+    "history": [
+      {
+        "iteration": 0,
+        "train_log_loss": 0.43927
+      },
+      {
+        "iteration": 1,
+        "train_log_loss": 0.44659
+      },
+      {
+        "iteration": 2,
+        "train_log_loss": 0.43372
+      },
+      {
+        "iteration": 3,
+        "train_log_loss": 0.43759
+      },
+      {
+        "iteration": 4,
+        "train_log_loss": 0.43729
+      },
+      {
+        "iteration": 5,
+        "train_log_loss": 0.44468
+      },
+      {
+        "iteration": 6,
+        "train_log_loss": 0.43574
+      },
+      {
+        "iteration": 7,
+        "train_log_loss": 0.46807
+      },
+      {
+        "iteration": 8,
+        "train_log_loss": 0.43469
+      },
+      {
+        "iteration": 9,
+        "train_log_loss": 0.43795
+      },
+      {
+        "iteration": 10,
+        "train_log_loss": 0.43372
+      },
+      {
+        "iteration": 11,
+        "train_log_loss": 0.43921
+      },
+      {
+        "iteration": 12,
+        "train_log_loss": 0.43372
+      },
+      {
+        "iteration": 13,
+        "train_log_loss": 0.44034
+      },
+      {
+        "iteration": 14,
+        "train_log_loss": 0.43372
+      },
+      {
+        "iteration": 15,
+        "train_log_loss": 0.42632
+      },
+      {
+        "iteration": 16,
+        "train_log_loss": 0.42632
+      },
+      {
+        "iteration": 17,
+        "train_log_loss": 0.41933
+      },
+      {
+        "iteration": 18,
+        "train_log_loss": 0.42923
+      },
+      {
+        "iteration": 19,
+        "train_log_loss": 0.4195
+      },
+      {
+        "iteration": 20,
+        "train_log_loss": 0.41017
+      },
+      {
+        "iteration": 21,
+        "train_log_loss": 0.41712
+      },
+      {
+        "iteration": 22,
+        "train_log_loss": 0.4089
+      },
+      {
+        "iteration": 23,
+        "train_log_loss": 0.41948
+      },
+      {
+        "iteration": 24,
+        "train_log_loss": 0.40129
+      },
+      {
+        "iteration": 25,
+        "train_log_loss": 0.39348
+      },
+      {
+        "iteration": 26,
+        "train_log_loss": 0.39729
+      },
+      {
+        "iteration": 27,
+        "train_log_loss": 0.39298
+      },
+      {
+        "iteration": 28,
+        "train_log_loss": 0.39216
+      },
+      {
+        "iteration": 29,
+        "train_log_loss": 0.39216
+      },
+      {
+        "iteration": 30,
+        "train_log_loss": 0.40197
+      },
+      {
+        "iteration": 31,
+        "train_log_loss": 0.39216
+      },
+      {
+        "iteration": 32,
+        "train_log_loss": 0.40433
+      },
+      {
+        "iteration": 33,
+        "train_log_loss": 0.39216
+      },
+      {
+        "iteration": 34,
+        "train_log_loss": 0.38393
+      },
+      {
+        "iteration": 35,
+        "train_log_loss": 0.40003
+      },
+      {
+        "iteration": 36,
+        "train_log_loss": 0.3871
+      },
+      {
+        "iteration": 37,
+        "train_log_loss": 0.39214
+      },
+      {
+        "iteration": 38,
+        "train_log_loss": 0.38348
+      },
+      {
+        "iteration": 39,
+        "train_log_loss": 0.38455
+      },
+      {
+        "iteration": 40,
+        "train_log_loss": 0.38558
+      },
+      {
+        "iteration": 41,
+        "train_log_loss": 0.38104
+      },
+      {
+        "iteration": 42,
+        "train_log_loss": 0.38067
+      },
+      {
+        "iteration": 43,
+        "train_log_loss": 0.39504
+      },
+      {
+        "iteration": 44,
+        "train_log_loss": 0.38064
+      },
+      {
+        "iteration": 45,
+        "train_log_loss": 0.38434
+      },
+      {
+        "iteration": 46,
+        "train_log_loss": 0.38149
+      },
+      {
+        "iteration": 47,
+        "train_log_loss": 0.3913
+      },
+      {
+        "iteration": 48,
+        "train_log_loss": 0.38464
+      },
+      {
+        "iteration": 49,
+        "train_log_loss": 0.38147
+      },
+      {
+        "iteration": 50,
+        "train_log_loss": 0.38186
+      },
+      {
+        "iteration": 51,
+        "train_log_loss": 0.38109
+      },
+      {
+        "iteration": 52,
+        "train_log_loss": 0.38241
+      },
+      {
+        "iteration": 53,
+        "train_log_loss": 0.38064
+      },
+      {
+        "iteration": 54,
+        "train_log_loss": 0.38259
+      },
+      {
+        "iteration": 55,
+        "train_log_loss": 0.38069
+      },
+      {
+        "iteration": 56,
+        "train_log_loss": 0.38374
+      },
+      {
+        "iteration": 57,
+        "train_log_loss": 0.38287
+      },
+      {
+        "iteration": 58,
+        "train_log_loss": 0.38125
+      },
+      {
+        "iteration": 59,
+        "train_log_loss": 0.3812
+      },
+      {
+        "iteration": 60,
+        "train_log_loss": 0.37969
+      },
+      {
+        "iteration": 61,
+        "train_log_loss": 0.37961
+      },
+      {
+        "iteration": 62,
+        "train_log_loss": 0.37859
+      },
+      {
+        "iteration": 63,
+        "train_log_loss": 0.37929
+      },
+      {
+        "iteration": 64,
+        "train_log_loss": 0.3788
+      },
+      {
+        "iteration": 65,
+        "train_log_loss": 0.37895
+      },
+      {
+        "iteration": 66,
+        "train_log_loss": 0.37902
+      },
+      {
+        "iteration": 67,
+        "train_log_loss": 0.37846
+      },
+      {
+        "iteration": 68,
+        "train_log_loss": 0.37824
+      },
+      {
+        "iteration": 69,
+        "train_log_loss": 0.37818
+      },
+      {
+        "iteration": 70,
+        "train_log_loss": 0.37813
+      },
+      {
+        "iteration": 71,
+        "train_log_loss": 0.37821
+      },
+      {
+        "iteration": 72,
+        "train_log_loss": 0.37913
+      },
+      {
+        "iteration": 73,
+        "train_log_loss": 0.37569
+      },
+      {
+        "iteration": 74,
+        "train_log_loss": 0.37377
+      },
+      {
+        "iteration": 75,
+        "train_log_loss": 0.37245
+      },
+      {
+        "iteration": 76,
+        "train_log_loss": 0.37338
+      },
+      {
+        "iteration": 77,
+        "train_log_loss": 0.3723
+      },
+      {
+        "iteration": 78,
+        "train_log_loss": 0.37131
+      },
+      {
+        "iteration": 79,
+        "train_log_loss": 0.37109
+      },
+      {
+        "iteration": 80,
+        "train_log_loss": 0.37143
+      },
+      {
+        "iteration": 81,
+        "train_log_loss": 0.37104
+      },
+      {
+        "iteration": 82,
+        "train_log_loss": 0.37092
+      },
+      {
+        "iteration": 83,
+        "train_log_loss": 0.37125
+      },
+      {
+        "iteration": 84,
+        "train_log_loss": 0.37062
+      },
+      {
+        "iteration": 85,
+        "train_log_loss": 0.36926
+      },
+      {
+        "iteration": 86,
+        "train_log_loss": 0.36836
+      },
+      {
+        "iteration": 87,
+        "train_log_loss": 0.36865
+      },
+      {
+        "iteration": 88,
+        "train_log_loss": 0.36808
+      },
+      {
+        "iteration": 89,
+        "train_log_loss": 0.36747
+      }
+    ]
+  },
+  "fidelity": {
+    "mean": 0.86617,
+    "min": 0.86192,
+    "max": 0.87121,
+    "std": 0.00246,
+    "n_circuits": 24,
+    "method": "state_fidelity(ideal Statevector, noisy DensityMatrix)",
+    "noise_model": "depolarizing",
+    "one_qubit_error_rate": 0.001,
+    "two_qubit_error_rate": 0.01,
+    "note": "Fidelity computed against a local depolarizing noise model, NOT measured on IBM Quantum hardware."
+  },
+  "sampled_run_example": {
+    "backend": "aer_simulator",
+    "backend_version": "0.17.2",
+    "n_qubits": 4,
+    "shots": 2048,
+    "circuit_depth": 21,
+    "circuit_size": 36,
+    "two_qubit_gates": 16,
+    "wall_ms": 24.37,
+    "simulated": true,
+    "hardware_vendor": null
+  },
+  "arms": [
+    {
+      "arm": "Classical LR \u2014 8 raw features",
+      "kind": "classical",
+      "notes": "Information ceiling: sees all 8 clinical reference feature dimensions.",
+      "accuracy": 0.9051,
+      "accuracy_95ci_wilson": [
+        0.8627,
+        0.9354
+      ],
+      "macro_f1": 0.9022,
+      "macro_auc_ovr": 0.9664,
+      "log_loss": 0.3633,
+      "high_risk_recall": 0.9074,
+      "high_risk_called_low": 0,
+      "referral_sensitivity": 0.9185,
+      "confusion_matrix": [
+        [
+          113,
+          5,
+          0
+        ],
+        [
+          11,
+          67,
+          3
+        ],
+        [
+          0,
+          5,
+          49
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "LOW",
+        "SUSPICIOUS",
+        "HIGH"
+      ],
+      "n_test": 253
+    },
+    {
+      "arm": "Classical LR \u2014 4 PCA components",
+      "kind": "classical",
+      "notes": "Dimension-matched linear control: same inputs the VQC receives.",
+      "accuracy": 0.8735,
+      "accuracy_95ci_wilson": [
+        0.8269,
+        0.909
+      ],
+      "macro_f1": 0.8683,
+      "macro_auc_ovr": 0.9615,
+      "log_loss": 0.4144,
+      "high_risk_recall": 0.8519,
+      "high_risk_called_low": 0,
+      "referral_sensitivity": 0.8889,
+      "confusion_matrix": [
+        [
+          112,
+          6,
+          0
+        ],
+        [
+          15,
+          63,
+          3
+        ],
+        [
+          0,
+          8,
+          46
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "LOW",
+        "SUSPICIOUS",
+        "HIGH"
+      ],
+      "n_test": 253
+    },
+    {
+      "arm": "Classical MLP \u2014 4 PCA components",
+      "kind": "classical",
+      "notes": "Dimension-matched NONLINEAR control. This is the honest comparison for the VQC arm.",
+      "accuracy": 0.9051,
+      "accuracy_95ci_wilson": [
+        0.8627,
+        0.9354
+      ],
+      "macro_f1": 0.9047,
+      "macro_auc_ovr": 0.9701,
+      "log_loss": 0.3108,
+      "high_risk_recall": 0.9074,
+      "high_risk_called_low": 0,
+      "referral_sensitivity": 0.9259,
+      "confusion_matrix": [
+        [
+          111,
+          7,
+          0
+        ],
+        [
+          10,
+          69,
+          2
+        ],
+        [
+          0,
+          5,
+          49
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "LOW",
+        "SUSPICIOUS",
+        "HIGH"
+      ],
+      "n_test": 253
+    },
+    {
+      "arm": "Hybrid VQC(4q, 2 reps) -> logistic head",
+      "kind": "hybrid",
+      "notes": "Quantum feature transformation on a local Aer simulator, then a classical head.",
+      "accuracy": 0.8972,
+      "accuracy_95ci_wilson": [
+        0.8537,
+        0.9289
+      ],
+      "macro_f1": 0.8911,
+      "macro_auc_ovr": 0.9601,
+      "log_loss": 0.36,
+      "high_risk_recall": 0.8519,
+      "high_risk_called_low": 0,
+      "referral_sensitivity": 0.9407,
+      "confusion_matrix": [
+        [
+          111,
+          7,
+          0
+        ],
+        [
+          8,
+          70,
+          3
+        ],
+        [
+          0,
+          8,
+          46
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "LOW",
+        "SUSPICIOUS",
+        "HIGH"
+      ],
+      "n_test": 253
+    }
+  ],
+  "significance": {
+    "hybrid_vs_matched_nonlinear": {
+      "discordant_a_right_b_wrong": 6,
+      "discordant_a_wrong_b_right": 8,
+      "n_discordant": 14,
+      "p_value": 0.7905,
+      "significant_at_05": false,
+      "test": "exact McNemar (binomial on discordant pairs)",
+      "comparison": "hybrid_vs_matched_nonlinear"
+    },
+    "hybrid_vs_matched_linear": {
+      "discordant_a_right_b_wrong": 13,
+      "discordant_a_wrong_b_right": 7,
+      "n_discordant": 20,
+      "p_value": 0.2632,
+      "significant_at_05": false,
+      "test": "exact McNemar (binomial on discordant pairs)",
+      "comparison": "hybrid_vs_matched_linear"
+    },
+    "hybrid_vs_information_ceiling": {
+      "discordant_a_right_b_wrong": 6,
+      "discordant_a_wrong_b_right": 8,
+      "n_discordant": 14,
+      "p_value": 0.7905,
+      "significant_at_05": false,
+      "test": "exact McNemar (binomial on discordant pairs)",
+      "comparison": "hybrid_vs_information_ceiling"
+    },
+    "summary": "NO arm-to-arm difference reached p<0.05. On this test set the arms are statistically indistinguishable, and no claim of quantum advantage \u2014 or of quantum deficiency \u2014 is supported by this data."
+  },
+  "headline": {
+    "best_arm": "Classical LR \u2014 8 raw features",
+    "best_accuracy": 0.9051,
+    "hybrid_accuracy": 0.8972,
+    "hybrid_accuracy_95ci": [
+      0.8537,
+      0.9289
+    ],
+    "matched_classical_accuracy": 0.9051,
+    "matched_linear_accuracy": 0.8735,
+    "hybrid_minus_matched_classical": -0.0079,
+    "hybrid_minus_matched_linear": 0.0237,
+    "any_difference_significant": false,
+    "interpretation": "Read this as a software-parity result on clinical pilot data, not a quantum advantage claim. On this held-out split the quantum feature map is statistically indistinguishable from the dimension-matched LINEAR control (+0.0237 accuracy, McNemar p=0.2632) and is statistically indistinguishable from the dimension-matched NONLINEAR control (-0.0079 accuracy, McNemar p=0.7905) \u2014 which is the expected and honest outcome for 4 qubits, a shallow ansatz, and a few hundred clinical reference samples. What is demonstrated is that the hybrid path runs end-to-end and is measurable against a fair classical control, not that quantum helps."
+  },
+  "environment": {
+    "python": "3.12.10",
+    "qiskit": "1.4.6",
+    "qiskit_aer": "0.17.2",
+    "scikit_learn": "1.9.0",
+    "numpy": "1.26.4",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "total_wall_clock_seconds": 103.78,
+  "started_at": "2026-08-26T01:52:51.055195+00:00"
+}

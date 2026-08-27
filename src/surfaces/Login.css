@@ -1,0 +1,300 @@
+/* ==========================================================================
+   QuOra Sign-In Surface — Clean Minimalist Medical Theme
+   ========================================================================== */
+
+.login {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  overflow: hidden;
+  padding: var(--sp-5);
+  font-family: var(--font-body);
+}
+
+/* ---- Atmospheric Background ---- */
+
+.login__bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+}
+
+.login__orb--teal {
+  width: 500px;
+  height: 500px;
+  bottom: -10%;
+  left: -5%;
+  background: radial-gradient(circle, rgba(27, 110, 113, 0.18), transparent 70%);
+}
+
+.login__orb--violet {
+  width: 500px;
+  height: 500px;
+  top: -10%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(91, 75, 158, 0.14), transparent 70%);
+}
+
+/* ---- Main Card Container ---- */
+
+.login__container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 960px;
+  min-height: 560px;
+  background: #ffffff;
+  border: 1px solid rgba(27, 110, 113, 0.16);
+  border-radius: var(--r-xl);
+  box-shadow: 0 16px 48px -8px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(27, 110, 113, 0.04);
+  overflow: hidden;
+}
+
+/* ---- Left Hero Panel ---- */
+
+.login__hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--sp-7) var(--sp-6);
+  background: linear-gradient(145deg, rgba(241, 245, 249, 0.9), rgba(27, 110, 113, 0.05) 80%);
+  border-right: 1px solid rgba(27, 110, 113, 0.1);
+  position: relative;
+}
+
+.login__hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.login__logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.login__title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink-950);
+  line-height: 1;
+  margin: 0;
+}
+
+.login__subtitle {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-600);
+  line-height: 1.45;
+  margin: 0 0 var(--sp-2);
+}
+
+/* Feature highlights */
+
+.login__features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login__feat {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.login__feat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-sm);
+  background: rgba(27, 110, 113, 0.1);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+  flex: 0 0 28px;
+  margin-top: 1px;
+}
+
+.login__feat strong {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-950);
+  line-height: 1.3;
+}
+
+.login__feat span {
+  font-size: 0.75rem;
+  color: var(--ink-600);
+  line-height: 1.35;
+}
+
+/* ---- Right Form Panel ---- */
+
+.login__form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-7) var(--sp-6);
+  background: #ffffff;
+}
+
+.login__form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.login__form-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.login__form-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ink-950);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.login__form-sub {
+  font-size: 0.8125rem;
+  color: var(--ink-500);
+  margin: 0;
+}
+
+.login__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.login__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-800);
+}
+
+.login__input {
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid var(--border-glass-bright);
+  border-radius: var(--r-md);
+  color: var(--ink-950);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.login__input:focus {
+  border-color: var(--medical-teal);
+  box-shadow: 0 0 0 3px rgba(27, 110, 113, 0.16);
+}
+
+.login__input::placeholder {
+  color: var(--ink-400);
+}
+
+.login__error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(194, 65, 45, 0.08);
+  border: 1px solid var(--brick-border);
+  border-radius: var(--r-md);
+  font-size: 0.75rem;
+  color: var(--alert-brick);
+  font-weight: 600;
+}
+
+.login__submit {
+  padding: 12px 20px;
+  margin-top: 4px;
+  background: linear-gradient(135deg, var(--medical-teal), #228b8f);
+  border: none;
+  border-radius: var(--r-md);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(27, 110, 113, 0.25);
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.login__submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #165b5e, #1c7a7e);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(27, 110, 113, 0.35);
+}
+
+.login__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login__spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.login__footer {
+  text-align: center;
+  padding-top: var(--sp-1);
+}
+
+.login__footer-note {
+  font-size: 0.6875rem;
+  color: var(--ink-500);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .login__container {
+    grid-template-columns: 1fr;
+  }
+  .login__hero {
+    display: none;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/deck.html",
+      "destination": "/deck.html"
+    },
+    {
+      "source": "/presentation.html",
+      "destination": "/deck.html"
+    },
+    {
+      "source": "/deck",
+      "destination": "/deck.html"
+    },
+    {
+      "source": "/presentation",
+      "destination": "/deck.html"
+    },
+    {
+      "source": "/data/(.*)",
+      "destination": "/data/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

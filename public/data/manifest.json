@@ -1,0 +1,18 @@
+{
+  "artifact": "quora-manifest",
+  "generated_at": "2026-08-26T01:58:04.471487+00:00",
+  "clinical reference": true,
+  "simulated": true,
+  "real_quantum_hardware_used": false,
+  "ibm_quantum_job_submitted": false,
+  "disclaimer": "QuOra Clinical Decision Support \u00b7 AI Triage Protocol.",
+  "files": {
+    "cases.json": "Full clinical reference case records consumed by the web app",
+    "cases.csv": "Flat view of the same cases",
+    "quantum_runs.json": "Instrument log of real local Aer circuit executions",
+    "benchmark.json": "Held-out benchmark of hybrid vs classical control arms",
+    "model.json": "Trained VQC parameters, PCA projection, and classifier heads"
+  },
+  "seed": 20260825,
+  "reproduce": "python train_benchmark.py && python run_pipeline.py"
+}

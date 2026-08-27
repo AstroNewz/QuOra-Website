@@ -1,0 +1,178 @@
+/* Provenance & Disclaimer styling with modern clinical-tech aesthetics */
+
+.demo-banner {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 28px;
+  flex: 0 0 auto;
+  padding: 4px var(--sp-5);
+  background: linear-gradient(90deg, rgba(184, 114, 46, 0.18), rgba(20, 24, 29, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--hair) solid rgba(184, 114, 46, 0.28);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--amber-bright);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.demo-banner--compact {
+  position: static;
+  background: rgba(184, 114, 46, 0.12);
+  min-height: auto;
+  padding: var(--sp-2) var(--sp-3);
+  border: var(--hair) solid rgba(184, 114, 46, 0.25);
+  border-radius: var(--r-sm);
+  white-space: normal;
+}
+
+.demo-banner__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--triage-amber);
+  box-shadow: 0 0 8px var(--triage-amber);
+  flex: 0 0 auto;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+.demo-banner__text {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.demo-banner__aside {
+  color: var(--ink-200);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-left: auto;
+  text-transform: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1080px) {
+  .demo-banner {
+    min-height: auto;
+    flex-wrap: wrap;
+    padding: 6px var(--sp-3);
+    white-space: normal;
+  }
+}
+
+/* ---- Simulator Badge (Quantum Violet) ---- */
+
+.sim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+  background: var(--violet-wash);
+  border: var(--hair) solid var(--violet-border);
+  color: var(--violet-bright);
+  box-shadow: 0 0 10px rgba(91, 75, 158, 0.15);
+  font-family: var(--font-body);
+  font-size: var(--t-nano);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  white-space: nowrap;
+  cursor: help;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.sim-badge:hover {
+  background: rgba(91, 75, 158, 0.22);
+  border-color: var(--violet-bright);
+}
+
+.sim-badge--sm {
+  padding: 2px 6px;
+  font-size: 0.625rem;
+}
+
+.sim-badge__glyph {
+  font-size: 0.85em;
+}
+
+.sim-badge--real {
+  background: var(--teal-wash);
+  border-color: var(--teal-border);
+  color: var(--teal-bright);
+  box-shadow: 0 0 10px rgba(27, 110, 113, 0.15);
+}
+
+/* ---- Synthetic Badge ---- */
+
+.synth-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+  background: rgba(241, 243, 244, 0.06);
+  border: var(--hair) solid var(--border-dark-strong);
+  color: var(--ink-200);
+  font-family: var(--font-body);
+  font-size: var(--t-nano);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  white-space: nowrap;
+  cursor: help;
+}
+
+.synth-badge--sm {
+  padding: 2px 6px;
+  font-size: 0.625rem;
+}
+
+/* ---- Inline Provenance Note ---- */
+
+.synth-note {
+  display: flex;
+  gap: var(--sp-3);
+  margin: 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(184, 114, 46, 0.08);
+  border: var(--hair) solid rgba(184, 114, 46, 0.25);
+  border-left: 3px solid var(--triage-amber);
+  border-radius: var(--r-md);
+  font-size: var(--t-body-sm);
+  line-height: 1.5;
+  color: var(--white-200);
+}
+
+.synth-note__mark {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--triage-amber);
+  color: var(--ink-950);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+}
+
+.not-a-diagnosis {
+  margin: 0;
+  font-size: var(--t-micro);
+  line-height: 1.5;
+  color: var(--ink-300);
+  border-top: var(--hair) solid var(--border-dark);
+  padding-top: var(--sp-2);
+}

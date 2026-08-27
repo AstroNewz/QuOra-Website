@@ -1,0 +1,127 @@
+/* LesionView — Modern Diagnostic Phantom Frame */
+
+.lesion {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.lesion__frame {
+  position: relative;
+  display: block;
+  width: var(--lesion-size);
+  height: var(--lesion-size);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #090c0f;
+  border: var(--hair) solid var(--border-glass);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.lesion__canvas {
+  display: block;
+  image-rendering: auto;
+}
+
+/* ---- Reticle Corners ---- */
+
+.lesion__corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--teal-bright);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.lesion__corner--tl {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 4px;
+}
+
+.lesion__corner--tr {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 4px;
+}
+
+.lesion__corner--bl {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 4px;
+}
+
+.lesion__corner--br {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 4px;
+}
+
+/* ---- Scale Bar ---- */
+
+.lesion__scale {
+  position: absolute;
+  right: 12px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  pointer-events: none;
+}
+
+.lesion__scale-bar {
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-left: 2px solid var(--white-100);
+  border-right: 2px solid var(--white-100);
+  border-bottom: 2px solid var(--white-100);
+  opacity: 0.85;
+}
+
+.lesion__scale-text {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--white-100);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* ---- Caption: Saliency Ramp Legend ---- */
+
+.lesion__cap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.lesion__cap-scale {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.lesion__cap-scale i {
+  display: block;
+  width: 14px;
+  height: 6px;
+  border-radius: 2px;
+}
+
+.lesion__cap-note {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--ink-300);
+  letter-spacing: 0.02em;
+}

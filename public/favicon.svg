@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  QuOra tab mark.
+
+  Same geometry as components/Brand.tsx, which was transcribed from
+  quora_refined_v1_logo.svg: a teal 270-degree classical arc, a violet
+  90-degree quantum arc closing the ring, and the diagonal tail that turns the
+  ring into a Q.
+
+  The file this replaced was the stock Vite lightning bolt in #863bff — a mark
+  that is not ours in a colour that is not in the palette. It would have been
+  sitting in the browser tab throughout the pitch.
+
+  Colours are hard-coded because a favicon gets no stylesheet: they are the
+  literal values of --clinical-teal, --quantum-violet, --graphite-ink and
+  --lab-white from styles/tokens.css. The graphite plate is deliberate — it
+  gives the mark its own ground so the white tail stays legible on a light tab
+  bar as well as a dark one.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" fill="#14181D"/>
+  <g transform="translate(64 64)" fill="none" stroke-width="9" stroke-linecap="round">
+    <!-- classical arc — teal, the long way round -->
+    <path d="M 0 -40 A 40 40 0 1 1 -28.3 28.3" stroke="#1B6E71"/>
+    <!-- quantum arc — violet, closing the ring -->
+    <path d="M -28.3 28.3 A 40 40 0 0 1 0 -40" stroke="#5B4B9E"/>
+    <!-- the tail that makes it a Q -->
+    <line x1="20" y1="20" x2="39" y2="39" stroke="#F1F3F4"/>
+  </g>
+</svg>

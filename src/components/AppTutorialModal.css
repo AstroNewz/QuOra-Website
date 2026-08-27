@@ -1,0 +1,257 @@
+/* ==========================================================================
+   QuOra Interactive Tutorial Modal — Medical Teal & Lab White Theme
+   ========================================================================== */
+
+.tutorial-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  animation: fadeIn 200ms ease-out;
+}
+
+.tutorial-modal {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--border-glass-bright);
+  border-radius: var(--r-xl);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15), inset 0 1px 1px rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 250ms var(--ease-spring);
+}
+
+.tutorial-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--medical-teal), var(--quantum-violet), var(--medical-teal));
+}
+
+/* Header */
+
+.tutorial-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-6);
+  border-bottom: 1px solid var(--border-glass);
+  background: rgba(241, 245, 249, 0.7);
+}
+
+.tutorial-modal__badge-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.tutorial-modal__step-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  background: rgba(27, 110, 113, 0.1);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+}
+
+.tutorial-modal__counter {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-500);
+}
+
+.tutorial-modal__close {
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  color: var(--ink-500);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.tutorial-modal__close:hover {
+  background: var(--ink-950);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* Body */
+
+.tutorial-modal__body {
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.tutorial-modal__hero {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+}
+
+.tutorial-modal__icon {
+  padding: 12px;
+  background: rgba(27, 110, 113, 0.08);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--r-lg);
+  color: var(--medical-teal);
+  flex: 0 0 auto;
+}
+
+.tutorial-modal__title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--ink-950);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.tutorial-modal__desc {
+  font-size: 0.875rem;
+  color: var(--ink-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* List */
+
+.tutorial-modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-lg);
+}
+
+.tutorial-modal__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.tutorial-modal__bullet-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-sm);
+  background: #ffffff;
+  border: 1px solid currentColor;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex: 0 0 26px;
+  margin-top: 1px;
+}
+
+.tutorial-modal__bullet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tutorial-modal__bullet-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+.tutorial-modal__bullet-text {
+  font-size: 0.75rem;
+  color: var(--ink-600);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Hint */
+
+.tutorial-modal__hint {
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  background: rgba(27, 110, 113, 0.08);
+  border: 1px solid var(--teal-border);
+  font-size: 0.75rem;
+  color: var(--medical-teal);
+  font-weight: 600;
+}
+
+/* Footer */
+
+.tutorial-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-6);
+  border-top: 1px solid var(--border-glass);
+  background: rgba(241, 245, 249, 0.7);
+}
+
+.tutorial-modal__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tutorial-modal__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ink-200);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.tutorial-modal__dot:hover {
+  background: var(--ink-400);
+}
+
+.tutorial-modal__dot.is-active {
+  width: 24px;
+  border-radius: var(--r-full);
+  background: var(--medical-teal);
+  box-shadow: 0 0 8px rgba(27, 110, 113, 0.3);
+}
+
+.tutorial-modal__btn-group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.btn--secondary {
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  color: var(--ink-800);
+}
+
+.btn--secondary:hover {
+  background: var(--ink-50);
+}

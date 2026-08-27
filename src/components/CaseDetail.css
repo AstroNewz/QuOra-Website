@@ -1,0 +1,298 @@
+/* ==========================================================================
+   QuOra Case Drill-Down Panel — Medical Teal & Lab White Theme
+   ========================================================================== */
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding: var(--sp-5) var(--sp-6) var(--sp-7);
+}
+
+/* ------------------------------- header --------------------------------- */
+
+.detail__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.detail__idline {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.detail__id {
+  font-family: var(--font-display);
+  font-size: var(--t-display-sm);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink-950);
+}
+
+.detail__badges {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.detail__stamp {
+  margin: 0;
+  font-size: var(--t-micro);
+  color: var(--ink-600);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-family: var(--font-body);
+  font-size: var(--t-nano);
+  font-weight: 700;
+  letter-spacing: var(--track-label);
+  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  color: var(--ink-800);
+  white-space: nowrap;
+}
+
+.chip--offline {
+  background: rgba(241, 245, 249, 0.8);
+  color: var(--ink-700);
+}
+
+/* ------------------------------ sections -------------------------------- */
+
+.detail__sec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4) var(--sp-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.detail__h {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-800);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.detail__h--teal {
+  color: var(--medical-teal);
+  border-bottom-color: var(--teal-border);
+}
+
+.detail__h--violet {
+  color: var(--quantum-violet);
+  border-bottom-color: var(--violet-border);
+}
+
+.detail__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-3) var(--sp-4);
+}
+
+.detail__grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.detail__span {
+  grid-column: 1 / -1;
+}
+
+.detail__fine {
+  margin: 0;
+  font-size: var(--t-micro);
+  line-height: 1.55;
+  color: var(--ink-600);
+}
+
+.detail__notes {
+  margin: 0;
+  padding-left: var(--sp-4);
+  font-size: var(--t-micro);
+  color: var(--ink-700);
+  line-height: 1.6;
+}
+
+/* ---------------------------- capture gate ------------------------------ */
+
+.gate {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: var(--track-label);
+  border: 1px solid;
+}
+
+.gate--pass {
+  color: var(--medical-teal);
+  border-color: var(--teal-border);
+  background: var(--teal-wash);
+}
+
+.gate--fail {
+  color: var(--alert-brick);
+  border-color: var(--brick-border);
+  background: var(--brick-wash);
+}
+
+.detail__meters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--sp-3) var(--sp-4);
+}
+
+.meter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.meter__track {
+  position: relative;
+  height: 6px;
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.meter__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--medical-teal), #228b8f);
+  border-radius: var(--r-full);
+}
+
+.meter__gate {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--triage-amber);
+  z-index: 1;
+}
+
+.meter__v {
+  font-family: var(--font-mono);
+  font-size: var(--t-nano);
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+/* ------------------------- classical features --------------------------- */
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.features__row {
+  display: grid;
+  grid-template-columns: minmax(112px, 1.3fr) minmax(60px, 2fr) 48px;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--t-nano);
+}
+
+.features__name {
+  color: var(--ink-700);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.features__track {
+  height: 5px;
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.features__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--medical-teal), #228b8f);
+  border-radius: var(--r-full);
+}
+
+.features__v {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+/* -------------------------------- fusion -------------------------------- */
+
+.detail__fusion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.drivers {
+  margin: 2px 0 0;
+  padding-left: var(--sp-4);
+  font-size: var(--t-body-sm);
+  color: var(--ink-800);
+  line-height: 1.55;
+}
+
+.drivers li {
+  margin-bottom: 4px;
+}
+
+/* Field item helper */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.field__k {
+  font-size: var(--t-nano);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-label);
+  color: var(--ink-500);
+}
+
+.field__v {
+  font-size: var(--t-body-sm);
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+/* Actions in drawer */
+.detail__actions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}
+
+.detail__actions .btn {
+  flex: 1;
+}

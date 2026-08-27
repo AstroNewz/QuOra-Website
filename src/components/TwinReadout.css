@@ -1,0 +1,164 @@
+/* Twin Readout — Dual-Lane Classical/Quantum Trace Visualization */
+
+.twin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.twin__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--t-nano);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-300);
+}
+
+.twin__body {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+}
+
+.twin__svg {
+  display: block;
+  overflow: visible;
+  flex: 0 0 auto;
+}
+
+.twin__base {
+  stroke: var(--border-dark);
+  stroke-width: 1;
+}
+
+.twin__base--idle {
+  stroke-dasharray: 3 3;
+  opacity: 0.5;
+}
+
+.twin__trace {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.is-drifting .twin__trace--q {
+  opacity: 0.55;
+}
+
+.is-locked .twin__trace--q {
+  opacity: 1;
+}
+
+.is-locked .twin__trace {
+  filter: drop-shadow(0 0 4px rgba(27, 110, 113, 0.45));
+}
+
+.is-locked .twin__trace--q {
+  filter: drop-shadow(0 0 4px rgba(91, 75, 158, 0.5));
+}
+
+.twin__synctick {
+  stroke: var(--teal-bright);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 2;
+  transition: opacity 260ms var(--ease-instrument);
+}
+
+.twin__values {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.twin__v {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.twin__v i {
+  font-style: normal;
+  font-size: 0.625rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.twin__v em {
+  font-style: normal;
+  font-size: 0.625rem;
+  opacity: 0.7;
+  margin-left: 1px;
+}
+
+.twin__v--q {
+  color: var(--violet-bright);
+  cursor: help;
+}
+
+.twin__v--idle {
+  color: var(--ink-400);
+  cursor: help;
+}
+
+/* ---- Size Variants ---- */
+
+.twin--strip .twin__values,
+.twin--hero .twin__values {
+  font-size: var(--t-body-sm);
+  gap: var(--sp-2);
+}
+
+.twin--hero .twin__values {
+  font-size: var(--t-display-sm);
+}
+
+.twin--strip .twin__v i,
+.twin--hero .twin__v i {
+  font-size: 0.6875rem;
+}
+
+.twin-legend {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.twin-legend__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--t-nano);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  color: var(--ink-200);
+}
+
+.twin-legend__swatch {
+  width: 16px;
+  height: 3px;
+  border-radius: var(--r-full);
+  flex: 0 0 auto;
+}
+
+.twin-legend__swatch--c {
+  background: var(--clinical-teal);
+  box-shadow: 0 0 6px rgba(27, 110, 113, 0.4);
+}
+
+.twin-legend__swatch--q {
+  background: var(--quantum-violet);
+  box-shadow: 0 0 6px rgba(91, 75, 158, 0.4);
+}

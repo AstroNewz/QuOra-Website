@@ -1,0 +1,219 @@
+/* Risk tier rendering with modern clinical styling */
+
+.tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: var(--r-full);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  white-space: nowrap;
+  border: var(--hair) solid;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.tier--sm {
+  font-size: 0.6875rem;
+  padding: 2px 7px;
+  gap: 4px;
+}
+
+.tier--md {
+  font-size: var(--t-nano);
+}
+
+.tier--lg {
+  font-size: var(--t-micro);
+  padding: 4px 12px;
+}
+
+.tier__glyph {
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+.tier--low {
+  background: var(--tier-low-wash);
+  border-color: var(--tier-low-border);
+  color: var(--tier-low-bright);
+  box-shadow: 0 0 12px rgba(27, 110, 113, 0.15);
+}
+
+.tier--suspicious {
+  background: var(--tier-suspicious-wash);
+  border-color: var(--tier-suspicious-border);
+  color: var(--tier-suspicious-bright);
+  box-shadow: 0 0 12px rgba(184, 114, 46, 0.18);
+}
+
+.tier--high {
+  background: var(--tier-high-wash);
+  border-color: var(--tier-high-border);
+  color: var(--tier-high-bright);
+  box-shadow: 0 0 12px rgba(140, 59, 46, 0.22);
+}
+
+/* ---- large readout, mobile result screen ---- */
+
+.tier-readout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  border: var(--hair) solid var(--border-glass);
+  background: var(--glass-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.tier-readout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.tier-readout--low::before {
+  background: var(--clinical-teal);
+  box-shadow: 0 0 12px var(--clinical-teal);
+}
+
+.tier-readout--low {
+  background: linear-gradient(135deg, rgba(27, 110, 113, 0.15), var(--ink-850) 65%);
+  border-color: rgba(27, 110, 113, 0.25);
+}
+
+.tier-readout--suspicious::before {
+  background: var(--triage-amber);
+  box-shadow: 0 0 12px var(--triage-amber);
+}
+
+.tier-readout--suspicious {
+  background: linear-gradient(135deg, rgba(184, 114, 46, 0.15), var(--ink-850) 65%);
+  border-color: rgba(184, 114, 46, 0.25);
+}
+
+.tier-readout--high::before {
+  background: var(--alert-brick);
+  box-shadow: 0 0 12px var(--alert-brick);
+}
+
+.tier-readout--high {
+  background: linear-gradient(135deg, rgba(140, 59, 46, 0.18), var(--ink-850) 65%);
+  border-color: rgba(140, 59, 46, 0.3);
+}
+
+.tier-readout__top {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.tier-readout__glyph {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.tier-readout--low .tier-readout__glyph,
+.tier-readout--low .tier-readout__tier {
+  color: var(--tier-low-bright);
+}
+
+.tier-readout--suspicious .tier-readout__glyph,
+.tier-readout--suspicious .tier-readout__tier {
+  color: var(--tier-suspicious-bright);
+}
+
+.tier-readout--high .tier-readout__glyph,
+.tier-readout--high .tier-readout__tier {
+  color: var(--tier-high-bright);
+}
+
+.tier-readout__tier {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.tier-readout__meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.tier-readout__conf {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--white-100);
+}
+
+.tier-readout__margin {
+  font-size: var(--t-nano);
+  color: var(--ink-300);
+  margin-left: auto;
+  font-family: var(--font-body);
+}
+
+/* ---- risk score meter ---- */
+
+.risk-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.risk-bar__track {
+  position: relative;
+  flex: 1 1 auto;
+  height: 6px;
+  min-width: 54px;
+  background: var(--ink-750);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.risk-bar__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: var(--r-full);
+  transition: width 400ms var(--ease-spring);
+}
+
+.risk-bar__fill--low {
+  background: linear-gradient(90deg, var(--teal-dim), var(--teal-bright));
+}
+
+.risk-bar__fill--suspicious {
+  background: linear-gradient(90deg, var(--amber-dim), var(--amber-bright));
+}
+
+.risk-bar__fill--high {
+  background: linear-gradient(90deg, var(--brick-dim), var(--brick-bright));
+}
+
+.risk-bar__tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--ink-950);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.risk-bar__value {
+  flex: 0 0 auto;
+  font-size: var(--t-nano);
+  font-weight: 600;
+  color: var(--ink-100);
+}

@@ -1,0 +1,600 @@
+/* ==========================================================================
+   QuOra Upload & Screening Portal — Medical Teal & Lab White Theme
+   ========================================================================== */
+
+.upload {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: transparent;
+}
+
+.upload__main {
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.upload__pad {
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---- Header ---- */
+
+.upload__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.upload__title {
+  font-family: var(--font-display);
+  font-size: var(--t-display-lg);
+  font-weight: 800;
+  color: var(--ink-950);
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+.upload__desc {
+  font-size: var(--t-body);
+  color: var(--ink-600);
+  margin: 0;
+}
+
+.upload__reset {
+  padding: 8px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-full);
+  color: var(--ink-800);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-spring);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+
+.upload__reset:hover {
+  background: var(--ink-50);
+  border-color: var(--medical-teal);
+  color: var(--medical-teal);
+}
+
+/* ---- Upload Zone ---- */
+
+.upload__zone-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.upload__zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-7) var(--sp-6);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 2px dashed var(--teal-border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-glass);
+  cursor: pointer;
+  transition: all var(--motion-normal) var(--ease-spring);
+  position: relative;
+}
+
+.upload__zone:hover,
+.upload__zone.is-dragover {
+  background: rgba(27, 110, 113, 0.06);
+  border-color: var(--medical-teal);
+  box-shadow: 0 8px 24px rgba(27, 110, 113, 0.12);
+  transform: translateY(-2px);
+}
+
+.upload__file-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.upload__zone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(27, 110, 113, 0.1);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+}
+
+.upload__zone-text {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ink-900);
+  text-align: center;
+}
+
+.upload__zone-text strong {
+  font-weight: 700;
+  color: var(--medical-teal);
+}
+
+.upload__zone-hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-500);
+}
+
+/* Divider */
+
+.upload__divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--ink-400);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+}
+
+.upload__divider::before,
+.upload__divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.upload__divider span {
+  padding: 0 var(--sp-3);
+}
+
+/* Demo selector */
+
+.upload__demo-select {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.upload__select-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-800);
+}
+
+.upload__select {
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid var(--teal-border);
+  border-radius: var(--r-md);
+  color: var(--ink-950);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.upload__select:focus {
+  border-color: var(--medical-teal);
+  box-shadow: 0 0 0 3px rgba(27, 110, 113, 0.18);
+}
+
+/* ---- Processing States ---- */
+
+.upload__processing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.upload__progress-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-7) var(--sp-6);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+  border: 1px solid var(--border-glass-bright);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-glass);
+  text-align: center;
+  min-width: 440px;
+}
+
+.upload__progress-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink-950);
+  margin: 0;
+}
+
+.upload__progress-card p {
+  font-size: 0.875rem;
+  color: var(--ink-600);
+  margin: 0;
+}
+
+.upload__progress-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(27, 110, 113, 0.2);
+  border-top-color: var(--medical-teal);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* Stages */
+
+.upload__stages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  margin-top: var(--sp-2);
+}
+
+.upload__stage {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 12px var(--sp-4);
+  border-radius: var(--r-md);
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid var(--border-glass);
+  font-size: 0.8125rem;
+  color: var(--ink-600);
+  transition: all 300ms var(--ease-spring);
+}
+
+.upload__stage.is-active {
+  background: #ffffff;
+  border-color: var(--medical-teal);
+  color: var(--ink-950);
+  box-shadow: 0 4px 12px rgba(27, 110, 113, 0.12);
+}
+
+.upload__stage.is-done {
+  color: var(--medical-teal);
+}
+
+.upload__stage-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-300);
+  flex: 0 0 auto;
+  transition: all 300ms;
+}
+
+.upload__stage-dot--q {
+  background: var(--quantum-violet);
+}
+
+.upload__stage.is-active .upload__stage-dot {
+  background: var(--quantum-violet);
+  box-shadow: 0 0 8px rgba(91, 75, 158, 0.4);
+}
+
+.upload__stage.is-done .upload__stage-dot {
+  background: var(--medical-teal);
+}
+
+.upload__stage-label {
+  flex: 1;
+  font-weight: 600;
+}
+
+.upload__stage-check {
+  color: var(--medical-teal);
+  flex: 0 0 auto;
+}
+
+.upload__stage-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--quantum-violet);
+  animation: pulse-dot 1s infinite ease-in-out;
+}
+
+/* ---- Results ---- */
+
+.upload__results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.upload__result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.upload__result-info {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.upload__result-case {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--ink-950);
+}
+
+.upload__readout-card {
+  padding: var(--sp-5);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass-bright);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-glass);
+}
+
+.upload__result-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.upload__result-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.upload__result-h {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-800);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.upload__result-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3) var(--sp-5);
+  padding: var(--sp-4);
+  background: var(--glass-card-nested);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-md);
+}
+
+/* ==========================================================================
+   Clinical Protocol & Guidelines Sidebar
+   ========================================================================== */
+
+.upload__sidebar {
+  border-left: 1px solid var(--border-glass);
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload__sidebar-pad {
+  padding: var(--sp-6) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.upload__side-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-lg);
+  box-shadow: 0 4px 16px -2px rgba(27, 110, 113, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.upload__side-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.upload__side-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--medical-teal);
+  padding: 2px 8px;
+  background: rgba(27, 110, 113, 0.08);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--r-full);
+}
+
+.upload__side-title {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--ink-950);
+  margin: 0;
+}
+
+/* Protocol List */
+
+.upload__protocol-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload__protocol-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.upload__protocol-item strong {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+.upload__protocol-item p {
+  font-size: 0.6875rem;
+  color: var(--ink-600);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* System Status Table */
+
+.upload__status-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upload__status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: 7px 10px;
+  background: rgba(241, 245, 249, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-sm);
+  font-size: 0.75rem;
+}
+
+.upload__status-label {
+  color: var(--ink-600);
+  font-weight: 600;
+}
+
+.upload__status-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--ink-950);
+  text-align: right;
+}
+
+.upload__status-value--online {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--medical-teal);
+}
+
+.upload__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--medical-teal);
+  box-shadow: 0 0 6px rgba(27, 110, 113, 0.6);
+  animation: pulse-dot 1.5s infinite ease-in-out;
+}
+
+.upload__status-value--target {
+  color: var(--medical-teal);
+  font-weight: 800;
+}
+
+/* Triage Legend */
+
+.upload__triage-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upload__triage-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.upload__triage-pill {
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.upload__triage-pill--high {
+  background: rgba(194, 65, 45, 0.12);
+  border: 1px solid var(--brick-border);
+  color: var(--alert-brick);
+}
+
+.upload__triage-pill--susp {
+  background: rgba(217, 119, 6, 0.12);
+  border: 1px solid var(--amber-border);
+  color: var(--triage-amber);
+}
+
+.upload__triage-pill--low {
+  background: rgba(27, 110, 113, 0.12);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+}
+
+.upload__triage-text {
+  font-size: 0.6875rem;
+  color: var(--ink-600);
+  line-height: 1.35;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1080px) {
+  .upload {
+    grid-template-columns: 1fr;
+  }
+  .upload__sidebar {
+    border-left: none;
+    border-top: 1px solid var(--border-glass);
+  }
+}

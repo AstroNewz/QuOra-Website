@@ -1,0 +1,358 @@
+/* Mobile Capture Flow — Modern Clinical Device Simulation */
+
+.flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--ink-950);
+}
+
+.flow__stage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--sp-6);
+  overflow-y: auto;
+  background-image:
+    radial-gradient(ellipse 60% 60% at 50% 30%, rgba(91, 75, 158, 0.08), transparent),
+    radial-gradient(circle at 50% 50%, rgba(241, 243, 244, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+}
+
+/* --------------------------------- device --------------------------------- */
+
+.device {
+  width: 380px;
+  flex: 0 0 auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-850);
+  border: var(--hair) solid var(--border-glass);
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: 
+    0 0 0 8px var(--ink-800),
+    0 0 0 10px rgba(241, 243, 244, 0.08),
+    0 24px 64px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+/* Speaker & Camera bezel notch */
+.device::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 5px;
+  background: var(--ink-750);
+  border-radius: var(--r-full);
+}
+
+.device__bezel {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 8px var(--sp-3) 10px;
+  font-size: 0.625rem;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-300);
+}
+
+.device__plate {
+  font-weight: 700;
+  color: var(--ink-200);
+}
+
+.device__loaded {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  color: var(--ink-300);
+}
+
+.device__net {
+  color: var(--teal-bright);
+  font-weight: 700;
+}
+
+.device__net.is-off {
+  color: var(--amber-bright);
+}
+
+.device__screen {
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-900);
+  border: var(--hair) solid var(--border-glass);
+  border-radius: 24px;
+  padding: var(--sp-4);
+  min-height: 560px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* ----------------------------- step tracker ------------------------------- */
+
+.steps {
+  list-style: none;
+  display: flex;
+  margin: 0 0 var(--sp-3);
+  padding: 3px;
+  background: rgba(14, 18, 23, 0.7);
+  border: var(--hair) solid var(--border-dark);
+  border-radius: var(--r-full);
+  gap: 2px;
+}
+
+.steps__i {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 0;
+  border-radius: var(--r-full);
+  color: var(--ink-400);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.steps__n {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.625rem;
+}
+
+.steps__t {
+  font-family: var(--font-body);
+}
+
+.steps__i.is-on {
+  background: linear-gradient(135deg, rgba(27, 110, 113, 0.5), rgba(91, 75, 158, 0.35));
+  border: var(--hair) solid var(--teal-border);
+  color: var(--white-100);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(27, 110, 113, 0.25);
+}
+
+.steps__i.is-past {
+  color: var(--teal-bright);
+}
+
+/* ----------------------------- camera viewport ---------------------------- */
+
+.viewfinder {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #080a0c;
+  border-radius: var(--r-lg);
+  border: var(--hair) solid var(--border-glass);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+}
+
+.viewfinder__canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reticle {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1.5px dashed rgba(27, 110, 113, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulse-reticle 2.4s infinite ease-in-out;
+}
+
+@keyframes pulse-reticle {
+  0%, 100% { transform: scale(0.96); opacity: 0.6; }
+  50% { transform: scale(1.04); opacity: 0.95; }
+}
+
+.reticle::before,
+.reticle::after {
+  content: "";
+  position: absolute;
+  background: var(--teal-bright);
+}
+
+.reticle::before {
+  top: 50%;
+  left: -8px;
+  right: -8px;
+  height: 1px;
+  transform: translateY(-50%);
+  opacity: 0.4;
+}
+
+.reticle::after {
+  left: 50%;
+  top: -8px;
+  bottom: -8px;
+  width: 1px;
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+/* ----------------------------- sensor feedback ---------------------------- */
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.sensor-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px;
+  background: var(--glass-card);
+  border: var(--hair) solid var(--border-glass);
+  border-radius: var(--r-md);
+  text-align: center;
+  gap: 2px;
+}
+
+.sensor-pill__label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ink-300);
+}
+
+.sensor-pill__val {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.sensor-pill--pass .sensor-pill__val {
+  color: var(--teal-bright);
+}
+
+.sensor-pill--fail .sensor-pill__val {
+  color: var(--brick-bright);
+}
+
+/* ---------------------------- execution tracker --------------------------- */
+
+.stage-list {
+  list-style: none;
+  margin: 0 0 var(--sp-3);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 8px var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--glass-card);
+  border: var(--hair) solid var(--border-glass);
+  font-size: 0.75rem;
+  color: var(--ink-300);
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.stage-item--active {
+  background: linear-gradient(135deg, rgba(91, 75, 158, 0.25), rgba(27, 110, 113, 0.2));
+  border-color: var(--violet-bright);
+  color: var(--white-100);
+  box-shadow: 0 0 12px rgba(91, 75, 158, 0.25);
+}
+
+.stage-item--done {
+  color: var(--teal-bright);
+}
+
+.stage-item__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-600);
+  flex: 0 0 auto;
+}
+
+.stage-item--active .stage-item__dot {
+  background: var(--violet-bright);
+  box-shadow: 0 0 8px var(--violet-bright);
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
+
+.stage-item--done .stage-item__dot {
+  background: var(--teal-bright);
+}
+
+/* ----------------------------- presenter notes ---------------------------- */
+
+.flow__notes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-5) var(--sp-5) var(--sp-6);
+  background: var(--ink-900);
+  border-left: var(--hair) solid var(--border-glass);
+  overflow-y: auto;
+}
+
+.notes-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--glass-card);
+  border: var(--hair) solid var(--border-glass);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.notes-card__h {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--teal-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.notes-card__body {
+  font-size: var(--t-micro);
+  line-height: 1.6;
+  color: var(--white-200);
+}
+
+.notes-card__list {
+  margin: 0;
+  padding-left: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+@media (max-width: 1080px) {
+  .flow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flow__notes {
+    border-left: none;
+    border-top: var(--hair) solid var(--border-glass);
+  }
+}

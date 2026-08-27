@@ -1,0 +1,1234 @@
+/* ==========================================================================
+   QuOra Triage Dashboard — Medical Teal & Lab White Clinical Theme
+   ========================================================================== */
+
+.dash {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  flex: 1 1 auto;
+  min-height: 0;
+  background: transparent;
+}
+
+.dash--split {
+  grid-template-columns: minmax(0, 1fr) 540px;
+}
+
+.dash__col {
+  min-width: 0;
+  overflow-y: auto;
+}
+
+.dash__pad {
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  max-width: 1720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   0. Header Section & Tutorial Launch Button
+   -------------------------------------------------------------------------- */
+
+.dash__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.dash__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: 4px;
+}
+
+.dash__title {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--ink-950);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.dash__status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  background: rgba(27, 110, 113, 0.12);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.dash__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--medical-teal);
+  box-shadow: 0 0 6px rgba(27, 110, 113, 0.4);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.dash__subtitle {
+  font-size: 0.875rem;
+  color: var(--ink-600);
+  margin: 0;
+}
+
+.dash__quick-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.btn--tutorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--r-full);
+  background: rgba(27, 110, 113, 0.08);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.btn--tutorial:hover {
+  background: rgba(27, 110, 113, 0.16);
+  border-color: var(--medical-teal);
+  color: #14585a;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   0.1. Quantum Target Status Banner (IBM Heron r2 v5.6)
+   -------------------------------------------------------------------------- */
+
+.dash__target-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: 12px var(--sp-5);
+  background: linear-gradient(135deg, rgba(27, 110, 113, 0.1), rgba(255, 255, 255, 0.9) 60%);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--r-lg);
+  box-shadow: 0 4px 16px -2px rgba(27, 110, 113, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  flex-wrap: wrap;
+}
+
+.dash__target-left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.dash__target-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--medical-teal);
+  border-radius: var(--r-full);
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(27, 110, 113, 0.3);
+}
+
+.dash__target-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
+  animation: pulse-dot 1.5s infinite ease-in-out;
+}
+
+.dash__target-info {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dash__target-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-600);
+}
+
+.dash__target-chip {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--medical-teal);
+  letter-spacing: -0.01em;
+}
+
+.dash__target-sub {
+  font-size: 0.75rem;
+  color: var(--ink-500);
+  font-weight: 500;
+}
+
+.dash__target-right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.dash__target-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-sm);
+  font-size: 0.6875rem;
+}
+
+.dash__target-pill-k {
+  color: var(--ink-500);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.dash__target-pill-v {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+/* --------------------------------------------------------------------------
+   0.2. Interactive Quick Guide Bar (Where to Click & What Happens)
+   -------------------------------------------------------------------------- */
+
+.guide-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-glass);
+}
+
+.guide-banner__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.guide-banner__title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--medical-teal);
+}
+
+.guide-banner__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.guide-banner__tour-link {
+  background: transparent;
+  border: none;
+  color: var(--medical-teal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.guide-banner__tour-link:hover {
+  color: #14585a;
+}
+
+.guide-banner__close {
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid var(--border-dark);
+  color: var(--ink-500);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: all var(--motion-fast);
+}
+
+.guide-banner__close:hover {
+  background: rgba(15, 23, 42, 0.12);
+  color: var(--ink-950);
+}
+
+.guide-banner__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+
+.guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.guide-step:hover {
+  background: #ffffff;
+  border-color: var(--medical-teal);
+  box-shadow: 0 4px 12px rgba(27, 110, 113, 0.12);
+  transform: translateY(-1px);
+}
+
+.guide-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--medical-teal), #228b8f);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  flex: 0 0 22px;
+  margin-top: 1px;
+}
+
+.guide-step strong {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-900);
+  margin-bottom: 2px;
+}
+
+.guide-step p {
+  font-size: 0.6875rem;
+  color: var(--ink-600);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.guide-step em {
+  color: var(--medical-teal);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   1. Executive KPI Summary Cards (Medical Teal Enhanced)
+   -------------------------------------------------------------------------- */
+
+.dash__kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-glass);
+  transition: all var(--motion-normal) var(--ease-spring);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(27, 110, 113, 0.6), transparent);
+}
+
+.kpi-card:hover {
+  background: var(--glass-card-hover);
+  border-color: var(--medical-teal);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+.kpi-card.is-selected {
+  border-color: var(--medical-teal);
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(27, 110, 113, 0.35), var(--shadow-md);
+}
+
+/* Teal Highlighted Queue Card */
+.kpi-card--teal-primary {
+  background: linear-gradient(180deg, rgba(27, 110, 113, 0.06), #ffffff 70%);
+  border-color: var(--teal-border);
+}
+
+.kpi-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.kpi-card__label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-800);
+  letter-spacing: 0.01em;
+}
+
+.kpi-card__pill {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.kpi-card__pill--teal {
+  background: rgba(27, 110, 113, 0.12);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+}
+
+.kpi-card__pill--high {
+  background: rgba(194, 65, 45, 0.1);
+  border: 1px solid var(--brick-border);
+  color: var(--alert-brick);
+}
+
+.kpi-card__pill--susp {
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid var(--amber-border);
+  color: var(--triage-amber);
+}
+
+.kpi-card__pill--low {
+  background: rgba(27, 110, 113, 0.1);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+}
+
+.kpi-card__metric {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+}
+
+.kpi-card__num {
+  font-family: var(--font-display);
+  font-size: 2.375rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-950);
+  letter-spacing: -0.03em;
+}
+
+.kpi-card__num--teal {
+  color: var(--medical-teal);
+}
+
+.kpi-card__num--high {
+  color: var(--alert-brick);
+}
+
+.kpi-card__num--susp {
+  color: var(--triage-amber);
+}
+
+.kpi-card__num--low {
+  color: var(--medical-teal);
+}
+
+.kpi-card__unit {
+  font-size: 0.875rem;
+  color: var(--ink-500);
+  font-weight: 600;
+}
+
+.kpi-card__sub {
+  font-size: 0.75rem;
+  color: var(--ink-600);
+  line-height: 1.3;
+}
+
+.kpi-card__foot {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--ink-500);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border-dark);
+}
+
+/* Distribution Bar in KPI 1 */
+
+.kpi-card__breakdown {
+  display: flex;
+  height: 6px;
+  border-radius: var(--r-full);
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.08);
+  margin-top: 4px;
+}
+
+.kpi-card__seg {
+  height: 100%;
+  transition: width 300ms var(--ease-spring);
+}
+
+.kpi-card__seg--high {
+  background: var(--alert-brick);
+}
+
+.kpi-card__seg--susp {
+  background: var(--triage-amber);
+}
+
+.kpi-card__seg--low {
+  background: var(--medical-teal);
+}
+
+/* --------------------------------------------------------------------------
+   2. Toolbar: Search, Filters, Sorters
+   -------------------------------------------------------------------------- */
+
+.dash__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-glass);
+  flex-wrap: wrap;
+}
+
+.dash__search-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex: 1 1 360px;
+  min-width: 280px;
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-md);
+  padding: 8px 14px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.dash__search-wrap:focus-within {
+  border-color: var(--medical-teal);
+  box-shadow: 0 0 0 3px rgba(27, 110, 113, 0.18);
+}
+
+.dash__search-icon {
+  color: var(--medical-teal);
+  flex: 0 0 auto;
+}
+
+.dash__search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--ink-950);
+}
+
+.dash__search-input::placeholder {
+  color: var(--ink-400);
+}
+
+.dash__search-clear {
+  background: transparent;
+  border: none;
+  color: var(--ink-400);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.dash__search-clear:hover {
+  color: var(--ink-950);
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.dash__filters {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* Tier tabs */
+
+.dash__tier-tabs {
+  display: flex;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-md);
+  padding: 3px;
+  gap: 2px;
+}
+
+.dash__tier-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  color: var(--ink-700);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.dash__tier-tab:hover {
+  color: var(--ink-950);
+  background: #ffffff;
+}
+
+.dash__tier-tab.is-active {
+  background: #ffffff;
+  border-color: var(--medical-teal);
+  color: var(--medical-teal);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(27, 110, 113, 0.15);
+}
+
+.dash__tier-tab--high.is-active {
+  color: var(--alert-brick);
+  border-color: var(--brick-border);
+  background: rgba(194, 65, 45, 0.08);
+}
+
+.dash__tier-tab--suspicious.is-active {
+  color: var(--triage-amber);
+  border-color: var(--amber-border);
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.dash__tier-tab--low.is-active {
+  color: var(--medical-teal);
+  border-color: var(--teal-border);
+  background: rgba(27, 110, 113, 0.08);
+}
+
+.dash__tier-tab-count {
+  font-size: 0.6875rem;
+  padding: 1px 6px;
+  border-radius: var(--r-full);
+  background: rgba(15, 23, 42, 0.06);
+  color: inherit;
+}
+
+/* Sort select */
+
+.dash__sort-select {
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-md);
+  color: var(--ink-800);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.dash__sort-select:focus {
+  border-color: var(--medical-teal);
+}
+
+/* Review toggle */
+
+.dash__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-800);
+  cursor: pointer;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  transition: all var(--motion-fast) var(--ease-spring);
+}
+
+.dash__toggle:hover {
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.dash__toggle input {
+  accent-color: var(--medical-teal);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. Results Header
+   -------------------------------------------------------------------------- */
+
+.dash__results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sp-1);
+}
+
+.dash__count {
+  font-size: 0.8125rem;
+  color: var(--ink-600);
+}
+
+.dash__count strong {
+  color: var(--medical-teal);
+}
+
+.dash__reset-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--medical-teal);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dash__reset-btn:hover {
+  color: #14585a;
+}
+
+/* --------------------------------------------------------------------------
+   4. Patient Cards Grid (Medical Teal Enhanced)
+   -------------------------------------------------------------------------- */
+
+.dash__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: var(--sp-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  box-shadow: var(--shadow-glass);
+  position: relative;
+  text-decoration: none;
+  transition: all var(--motion-normal) var(--ease-spring);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(27, 110, 113, 0.4), transparent);
+}
+
+.card:hover {
+  background: var(--glass-card-hover);
+  border-color: var(--medical-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -2px rgba(27, 110, 113, 0.16), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+}
+
+.card.is-active {
+  background: #ffffff;
+  border-color: var(--medical-teal);
+  box-shadow: 0 0 0 2px rgba(27, 110, 113, 0.4), var(--shadow-md);
+}
+
+/* Card Header */
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.card__id-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.card__id {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--medical-teal);
+  letter-spacing: 0.02em;
+}
+
+.card__time {
+  font-size: 0.6875rem;
+  color: var(--ink-500);
+}
+
+/* Risk Tier Badge */
+
+.card__tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card__tier-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.card__tier-badge--high {
+  background: rgba(194, 65, 45, 0.1);
+  border: 1px solid var(--brick-border);
+  color: var(--alert-brick);
+}
+
+.card__tier-badge--high .card__tier-dot {
+  background: var(--alert-brick);
+}
+
+.card__tier-badge--suspicious {
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid var(--amber-border);
+  color: var(--triage-amber);
+}
+
+.card__tier-badge--suspicious .card__tier-dot {
+  background: var(--triage-amber);
+}
+
+.card__tier-badge--low {
+  background: rgba(27, 110, 113, 0.12);
+  border: 1px solid var(--teal-border);
+  color: var(--medical-teal);
+}
+
+.card__tier-badge--low .card__tier-dot {
+  background: var(--medical-teal);
+}
+
+/* Patient Info */
+
+.card__patient {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.8125rem;
+}
+
+.card__age-sex {
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+.card__dot-sep {
+  color: var(--ink-300);
+}
+
+.card__location {
+  color: var(--ink-600);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Lesion Box (Nested Container) */
+
+.card__lesion {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  background: var(--glass-card-nested);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-md);
+}
+
+.card__site-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card__site-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--medical-teal);
+}
+
+.card__site-val {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+.card__appearance {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--ink-700);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Score Section */
+
+.card__score-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card__score-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__score-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-600);
+}
+
+.card__score-num {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--ink-950);
+}
+
+.card__meter {
+  height: 6px;
+  border-radius: var(--r-full);
+  background: rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.card__meter-fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width 300ms var(--ease-spring);
+}
+
+.card__meter-fill--high {
+  background: var(--alert-brick);
+}
+
+.card__meter-fill--suspicious {
+  background: var(--triage-amber);
+}
+
+.card__meter-fill--low {
+  background: var(--medical-teal);
+}
+
+/* Dual Head Chips */
+
+.card__heads {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.card__head-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-sm);
+  font-size: 0.6875rem;
+}
+
+.card__head-pill--teal {
+  border-color: var(--teal-border);
+  background: rgba(27, 110, 113, 0.06);
+}
+
+.card__head-pill--teal .card__head-name {
+  color: var(--medical-teal);
+}
+
+.card__head-pct {
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+.card__head-pill--quantum {
+  border-color: rgba(91, 75, 158, 0.25);
+  background: rgba(91, 75, 158, 0.06);
+}
+
+.card__head-pill--quantum .card__head-name {
+  color: var(--quantum-violet);
+}
+
+.card__head-pill--quantum .card__head-pct {
+  color: var(--quantum-violet);
+}
+
+/* Card Footer */
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border-dark);
+}
+
+.card__review-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--ink-600);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card__open-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--medical-teal);
+  white-space: nowrap;
+  transition: transform var(--motion-fast);
+}
+
+.card:hover .card__open-btn {
+  transform: translateX(3px);
+  color: #14585a;
+}
+
+/* --------------------------------------------------------------------------
+   5. Empty State
+   -------------------------------------------------------------------------- */
+
+.dash__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-7) var(--sp-5);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px dashed var(--border-glass);
+  border-radius: var(--r-xl);
+  text-align: center;
+  gap: var(--sp-3);
+  box-shadow: var(--shadow-glass);
+}
+
+.dash__empty-icon {
+  color: var(--ink-400);
+}
+
+.dash__empty h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin: 0;
+}
+
+.dash__empty p {
+  font-size: 0.875rem;
+  color: var(--ink-600);
+  margin: 0 0 var(--sp-2);
+  max-width: 45ch;
+}
+
+/* --------------------------------------------------------------------------
+   6. Case Detail Drawer
+   -------------------------------------------------------------------------- */
+
+.dash__detail {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+  border-left: 1px solid var(--border-glass);
+  box-shadow: -8px 0 32px rgba(15, 23, 42, 0.1);
+}
+
+.dash__detailtop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--border-glass);
+  background: rgba(241, 245, 249, 0.8);
+}
+
+.dash__detailtitle {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin: 2px 0 0;
+}
+
+.dash__close {
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
+  color: var(--ink-700);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all var(--motion-fast) var(--ease-spring);
+  text-decoration: none;
+}
+
+.dash__close:hover {
+  background: var(--ink-950);
+  color: #ffffff;
+}
+
+.dash__detailscroll {
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1300px) {
+  .dash__kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .guide-banner__steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dash--split {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .dash--split .dash__col {
+    overflow: visible;
+  }
+
+  .dash__detail {
+    border-left: none;
+    border-top: 1px solid var(--border-glass);
+  }
+}
+
+@media (max-width: 768px) {
+  .dash__pad {
+    padding: var(--sp-4);
+  }
+
+  .dash__kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .dash__grid {
+    grid-template-columns: 1fr;
+  }
+}
