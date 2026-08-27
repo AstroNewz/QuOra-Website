@@ -22,6 +22,11 @@ const dest = resolve(here, "..", "public", "data");
 const REQUIRED = ["cases.json", "quantum_runs.json", "benchmark.json", "manifest.json"];
 
 if (!existsSync(src)) {
+  const allDestExist = REQUIRED.every((f) => existsSync(join(dest, f)));
+  if (allDestExist) {
+    console.log("[sync-data] standalone mode: using existing public/data artifacts");
+    process.exit(0);
+  }
   console.error(`[sync-data] missing ${src}`);
   console.error("[sync-data] run:  cd quantum && python train_benchmark.py && python run_pipeline.py");
   process.exit(1);
