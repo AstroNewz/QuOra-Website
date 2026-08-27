@@ -13,7 +13,7 @@
   <style>
     /* ==========================================================================
        Braket Reloaded — Full-Page Immersive Medical Teal & Lab White Engine
-       Edge-to-edge cinematic keynote view with video playback.
+       Edge-to-edge cinematic keynote view with price slashed animation.
        ========================================================================== */
     :root {
       --teal-900: #0a3a3c;
@@ -154,6 +154,36 @@
     .static-number--alert {
       color: var(--crimson-red);
       text-shadow: 0 8px 40px var(--crimson-glow);
+    }
+
+    /* Slashed Price Reveal Styles (Slides 28 & 29) */
+    .price-strikethrough-reveal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .price-slashed {
+      font-family: var(--font-display);
+      font-size: 5.5rem;
+      font-weight: 800;
+      color: var(--slate-400);
+      text-decoration: line-through;
+      text-decoration-color: var(--crimson-red);
+      text-decoration-thickness: 9px;
+      line-height: 1;
+      opacity: 0.75;
+    }
+
+    .price-final-199 {
+      font-family: var(--font-display);
+      font-size: 9.5rem;
+      font-weight: 900;
+      color: var(--teal-700);
+      line-height: 1;
+      text-shadow: 0 8px 36px rgba(27, 110, 113, 0.22);
     }
 
     /* Standard Presentation Slide Typography */
@@ -1194,18 +1224,30 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 28: JUST RS 199 (NO EXTRA TEXT)
+         SLIDE 28: RS 4,999 (INITIAL PRICE ANCHOR)
          ----------------------------------------------------------------------- -->
     <section class="slide" data-index="27">
       <div class="pure-number-slide">
-        <div class="static-number" style="font-size: 9.5rem; color: var(--teal-700);">Just Rs 199</div>
+        <div class="static-number" style="font-size: 10.5rem; color: var(--slate-800);">Rs 4,999</div>
       </div>
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 29: FOR HOSPITALS: QUORA WEBAPP + QR CODE
+         SLIDE 29: CUT IT -> JUST RS 199
          ----------------------------------------------------------------------- -->
     <section class="slide" data-index="28">
+      <div class="pure-number-slide">
+        <div class="price-strikethrough-reveal">
+          <div class="price-slashed">Rs 4,999</div>
+          <div class="price-final-199">Just Rs 199</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SLIDE 30: FOR HOSPITALS: QUORA WEBAPP + QR CODE
+         ----------------------------------------------------------------------- -->
+    <section class="slide" data-index="29">
       <h2 class="slide-heading">For Hospitals &amp; Clinics: <em>The QuOra Webapp</em></h2>
       
       <div class="qr-webapp-layout">
@@ -1233,9 +1275,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 30: AND FOR NORMAL CITIZENS: THE QUORA APP + DOWNLOAD QR
+         SLIDE 31: AND FOR NORMAL CITIZENS: THE QUORA APP + DOWNLOAD QR
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="29">
+    <section class="slide" data-index="30">
       <h2 class="slide-heading">And for Normal Citizens: <em>The QuOra App</em></h2>
       
       <div class="qr-webapp-layout">
@@ -1263,9 +1305,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 31: HOW TO USE THIS APP
+         SLIDE 32: HOW TO USE THIS APP
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="30">
+    <section class="slide" data-index="31">
       <h2 class="slide-heading">How to Use <em>The QuOra App</em></h2>
       <p class="slide-desc">Designed for zero medical training — point, align, scan, and receive clinical guidance.</p>
 
@@ -1294,9 +1336,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 32: OUR BUSINESS MODEL & UNIT ECONOMICS (IN INR)
+         SLIDE 33: OUR BUSINESS MODEL & UNIT ECONOMICS (IN INR)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="31">
+    <section class="slide" data-index="32">
       <h2 class="slide-heading">Our <em>Business Model</em></h2>
       <p class="slide-desc">High-margin software revenue across institutional B2B and consumer B2C channels.</p>
 
@@ -1331,9 +1373,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 33: CORE TECHNOLOGY - HYBRID QUANTUM AI
+         SLIDE 34: CORE TECHNOLOGY - HYBRID QUANTUM AI
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="32">
+    <section class="slide" data-index="33">
       <h2 class="slide-heading">Hybrid <em>Quantum AI</em> Technology</h2>
       <p class="slide-desc">QuOra is a dual-platform early oral cancer screening solution fusing classical vision with superconducting quantum circuits.</p>
 
@@ -1354,9 +1396,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 34: TARGET PAIN POINTS & FUNDAMENTAL PROBLEM SOLVED
+         SLIDE 35: TARGET PAIN POINTS & FUNDAMENTAL PROBLEM SOLVED
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="33">
+    <section class="slide" data-index="34">
       <h2 class="slide-heading">Target Pain Points &amp; <em>Fundamental Solution</em></h2>
 
       <div class="tech-dual-layout">
@@ -1375,9 +1417,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 35: MARKET SIZE & GROWTH DYNAMICS
+         SLIDE 36: MARKET SIZE & GROWTH DYNAMICS
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="34">
+    <section class="slide" data-index="35">
       <h2 class="slide-heading">Market Size &amp; <em>Growth Dynamics</em></h2>
       <p class="slide-desc">India represents the world's highest density growth opportunity for point-of-care AI oncology diagnostics.</p>
 
@@ -1397,9 +1439,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 36: TOTAL ADDRESSABLE MARKET (TAM)
+         SLIDE 37: TOTAL ADDRESSABLE MARKET (TAM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="35">
+    <section class="slide" data-index="36">
       <h2 class="slide-heading" style="margin-bottom: 2px;">Total Addressable Market <em>(TAM)</em></h2>
       
       <div class="market-giant-card">
@@ -1411,9 +1453,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 37: SERVICEABLE ADDRESSABLE MARKET (SAM)
+         SLIDE 38: SERVICEABLE ADDRESSABLE MARKET (SAM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="36">
+    <section class="slide" data-index="37">
       <h2 class="slide-heading" style="margin-bottom: 2px;">Serviceable Addressable Market <em>(SAM)</em></h2>
       
       <div class="market-giant-card">
@@ -1425,9 +1467,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 38: SERVICEABLE OBTAINABLE MARKET (SOM)
+         SLIDE 39: SERVICEABLE OBTAINABLE MARKET (SOM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="37">
+    <section class="slide" data-index="38">
       <h2 class="slide-heading" style="margin-bottom: 2px;">Serviceable Obtainable Market <em>(SOM)</em></h2>
       
       <div class="market-giant-card">
@@ -1439,9 +1481,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 39: CUSTOMER ACQUISITION STRATEGY (GTM)
+         SLIDE 40: CUSTOMER ACQUISITION STRATEGY (GTM)
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="38">
+    <section class="slide" data-index="39">
       <h2 class="slide-heading">Customer Acquisition <em>(GTM)</em></h2>
 
       <div class="tech-dual-layout">
@@ -1460,9 +1502,9 @@
     </section>
 
     <!-- -----------------------------------------------------------------------
-         SLIDE 40: CLOSING VISION - INDIAN QUANTUM MISSION 2030
+         SLIDE 41: CLOSING VISION - INDIAN QUANTUM MISSION 2030
          ----------------------------------------------------------------------- -->
-    <section class="slide" data-index="39">
+    <section class="slide" data-index="40">
       <div class="giant-stat giant-stat--teal" style="font-size: 6.5rem;">ZERO DEATHS</div>
       <p class="lead-stat-sub" style="max-width: 28ch; line-height: 1.3;">With the Completion of the National Quantum Mission by 2030...</p>
       <p class="slide-desc" style="margin-top: 24px; max-width: 56ch; font-size: 1.35rem; color: var(--slate-800); font-weight: 600;">
