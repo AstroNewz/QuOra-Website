@@ -13,7 +13,7 @@
   <style>
     /* ==========================================================================
        Braket Reloaded — Full-Page Immersive Medical Teal & Lab White Engine
-       With clinical Medical Teal precision boundary outline frame.
+       Crisp, clinical typography without blurry red glow shadows.
        ========================================================================== */
     :root {
       --teal-900: #0a3a3c;
@@ -35,7 +35,6 @@
       
       --crimson-red: #d32f2f;
       --crimson-dark: #b71c1c;
-      --crimson-glow: rgba(211, 47, 47, 0.35);
       
       --border-teal-subtle: rgba(27, 110, 113, 0.22);
       --border-teal-bold: rgba(27, 110, 113, 0.5);
@@ -184,12 +183,12 @@
       line-height: 1;
       letter-spacing: -0.04em;
       color: var(--teal-700);
-      text-shadow: 0 8px 36px rgba(27, 110, 113, 0.2);
+      text-shadow: none;
     }
 
     .static-number--alert {
       color: var(--crimson-red);
-      text-shadow: 0 8px 40px var(--crimson-glow);
+      text-shadow: none !important;
     }
 
     /* Slashed Price Reveal Styles */
@@ -211,6 +210,7 @@
       text-decoration-thickness: 9px;
       line-height: 1;
       opacity: 0.75;
+      text-shadow: none;
     }
 
     .price-final-199 {
@@ -219,7 +219,7 @@
       font-weight: 900;
       color: var(--teal-700);
       line-height: 1;
-      text-shadow: 0 8px 36px rgba(27, 110, 113, 0.22);
+      text-shadow: none;
     }
 
     /* Standard Presentation Slide Typography */
@@ -253,13 +253,13 @@
       line-height: 0.95;
       letter-spacing: -0.03em;
       color: var(--crimson-red);
-      text-shadow: 0 6px 36px var(--crimson-glow);
+      text-shadow: none !important;
       margin: 16px 0;
     }
 
     .giant-stat--teal {
       color: var(--teal-700);
-      text-shadow: 0 6px 30px rgba(27, 110, 113, 0.18);
+      text-shadow: none !important;
     }
 
     .lead-stat-sub {
@@ -309,7 +309,7 @@
       max-width: 420px;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 14px 28px var(--crimson-glow));
+      filter: none;
     }
 
     .map-tag-badge {
@@ -444,7 +444,7 @@
     .timeline-card--danger {
       background: rgba(211, 47, 47, 0.04);
       border-color: rgba(211, 47, 47, 0.45);
-      box-shadow: 0 14px 36px var(--crimson-glow);
+      box-shadow: none;
     }
 
     .timeline-badge {
@@ -483,10 +483,12 @@
       font-weight: 800;
       color: var(--teal-700);
       margin-top: 8px;
+      text-shadow: none;
     }
 
     .timeline-stat-lead--danger {
       color: var(--crimson-red);
+      text-shadow: none !important;
     }
 
     /* Two Futures Comparison Table Slide */
@@ -561,6 +563,7 @@
       font-size: 2rem;
       font-weight: 900;
       color: var(--teal-700);
+      text-shadow: none;
     }
 
     .future-val--highlight-red {
@@ -568,6 +571,7 @@
       font-size: 2rem;
       font-weight: 900;
       color: var(--crimson-red);
+      text-shadow: none !important;
     }
 
     /* Dramatic Impact Typography */
@@ -588,7 +592,7 @@
       line-height: 1;
       letter-spacing: -0.02em;
       color: var(--crimson-red);
-      text-shadow: 0 10px 48px var(--crimson-glow);
+      text-shadow: none !important;
       margin-bottom: 20px;
     }
 
@@ -599,7 +603,7 @@
       line-height: 1.05;
       letter-spacing: -0.02em;
       color: var(--teal-700);
-      text-shadow: 0 8px 36px rgba(27, 110, 113, 0.18);
+      text-shadow: none;
       margin-bottom: 24px;
       max-width: 22ch;
     }
@@ -641,7 +645,7 @@
       font-size: 4.2rem;
       font-weight: 900;
       color: var(--crimson-red);
-      text-shadow: 0 4px 24px var(--crimson-glow);
+      text-shadow: none !important;
     }
 
     .queue-card {
@@ -663,7 +667,7 @@
       font-size: 6.2rem;
       font-weight: 900;
       color: var(--crimson-red);
-      text-shadow: 0 6px 36px var(--crimson-glow);
+      text-shadow: none !important;
       line-height: 1;
     }
 
@@ -995,7 +999,6 @@
       font-weight: 900;
       color: var(--teal-700);
       line-height: 1;
-      text-shadow: 0 6px 28px rgba(27, 110, 113, 0.18);
     }
 
     .market-giant-sub {
